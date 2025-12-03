@@ -110,5 +110,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const mobileCards = document.querySelectorAll(".hero-mobile-card");
+
+    mobileCards.forEach(card => {
+
+        card.addEventListener("touchstart", () => {
+            card.classList.add("touch-active");
+        });
+
+        card.addEventListener("touchend", () => {
+            card.classList.remove("touch-active");
+        });
+
+        card.addEventListener("touchcancel", () => {
+            card.classList.remove("touch-active");
+        });
+
+    });
+
+});
+</script>
+
 
 
