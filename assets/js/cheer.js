@@ -21,19 +21,20 @@ document.addEventListener("DOMContentLoaded", () => {
     document.querySelectorAll(".fade-in").forEach(el => obs.observe(el));
 });
 
-/* ---------------------------------------- */
-/* HERO STACK PRO – AUTO HOVER SECUENCIAL   */
-/* ---------------------------------------- */
 document.addEventListener("DOMContentLoaded", () => {
     const cards = document.querySelectorAll(".hero-card");
 
+    let interval = null;
+    let isPaused = false;
+
     function rotateCarousel() {
 
+        if (isPaused) return;  // ← Si está pausado, no hace nada
+        
         const center = document.querySelector(".hero-pos-center");
         const left = document.querySelector(".hero-pos-left");
         const right = document.querySelector(".hero-pos-right");
 
-        // Rotación circular de clases
         center.classList.remove("hero-pos-center");
         center.classList.add("hero-pos-right");
 
@@ -44,9 +45,46 @@ document.addEventListener("DOMContentLoaded", () => {
         left.classList.add("hero-pos-center");
     }
 
-    // Iniciar carrusel
-    setInterval(rotateCarousel, 3000);
+    function startAutoRoll() {
+        interval = setInterval(rotateCarousel, 3500);
+        isPaused = false;
+    }
+
+    function stopAutoRoll() {
+        clearInterval(interval);
+        isPaused = true;
+    }
+
+    // Iniciar autoroll
+    startAutoRoll();
+
+
+    /* ----------------------------------------- */
+    /* PAUSAR EN MOUSEOVER Y CLICK               */
+    /* ----------------------------------------- */
+
+    cards.forEach(card => {
+
+        // Pausar al entrar hover
+        card.addEventListener("mouseenter", () => {
+            stopAutoRoll();
+        });
+
+        // Pausar si se hace click
+        card.addEventListener("click", () => {
+            stopAutoRoll();
+        });
+
+        // Reanudar al salir
+        card.addEventListener("mouseleave", () => {
+            // solo reanudar si no se ha hecho click recientemente
+            if (isPaused) startAutoRoll();
+        });
+
+    });
+
 });
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -86,4 +124,5 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
 
