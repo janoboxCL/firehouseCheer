@@ -274,34 +274,189 @@
 
 
 
-    <!-- BENEFICIOS -->
-    <section id="beneficios" class="w-full py-32 fade-in bg-cheer-gray/20">
-        <div class="max-w-screen-xl mx-auto px-6 text-center mb-16">
-            <h2 class="font-title text-4xl font-extrabold">Beneficios</h2>
-            <p class="text-cheer-white/70 mt-3">
-                Entrena con una metodología moderna orientada al rendimiento y la seguridad.
+  <!-- COACHS FIREHOUSE -->
+<section id="coachs" class="w-full py-32 bg-cheer-black fade-in">
+    <div class="max-w-screen-xl mx-auto px-6 space-y-10">
+
+        <!-- Encabezado -->
+        <div class="text-center space-y-3">
+            <p class="text-cheer-red text-xs font-semibold tracking-[0.25em] uppercase">
+                Staff técnico
+            </p>
+            <h2 class="font-title text-3xl md:text-4xl lg:text-5xl font-extrabold text-cheer-white">
+                Nuestros Coaches
+            </h2>
+            <p class="text-cheer-white/70 max-w-2xl mx-auto text-sm md:text-base">
+                Líderes técnicos con experiencia competitiva, foco en formación integral y
+                mentalidad de alto rendimiento.
             </p>
         </div>
 
-        <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-3 gap-10">
+        <!-- GRID / CARRUSEL SIMPLE (3 COACHS) -->
+        <div class="grid md:grid-cols-3 gap-8" data-coach-grid>
+            
+            <!-- COACH 1 -->
+            <article class="coach-card" data-coach-card>
+                
+                <!-- Marco + foto -->
+                <div class="coach-frame">
+                    <div class="coach-frame-accent coach-frame-accent--tl"></div>
+                    <div class="coach-frame-accent coach-frame-accent--br"></div>
+                    <img 
+                        src="assets/img/coach1.jpg" 
+                        alt="Head Coach Firehouse"
+                        class="coach-img"
+                    />
 
-            <div class="card-cheer text-center space-y-4">
-                <h3 class="font-title text-xl font-bold">Técnica Profesional</h3>
-                <p class="text-cheer-white/70">Desarrolla habilidades reales de stunt, salto y pirámide.</p>
-            </div>
+                    <!-- Overlay inferior -->
+                    <div class="coach-overlay">
+                        <div>
+                            <h3 class="coach-name">Coach Nicole</h3>
+                            <p class="coach-role">Head Coach · All Stars</p>
+                        </div>
+                        <div class="coach-icon-tag">
+                            <!-- Icono simple (estrella / trofeo) -->
+                            <span class="coach-tag-label">Liderazgo</span>
+                        </div>
+                    </div>
+                </div>
 
-            <div class="card-cheer text-center space-y-4">
-                <h3 class="font-title text-xl font-bold">Fuerza & Resistencia</h3>
-                <p class="text-cheer-white/70">Programas físicos orientados al rendimiento competitivo.</p>
-            </div>
+                <!-- Resumen rápido -->
+                <div class="coach-body">
+                    <ul class="coach-bullets">
+                        <li>• Más de 10 años en Cheerleading competitivo.</li>
+                        <li>• Experiencia en niveles All Star y categorías formativas.</li>
+                    </ul>
 
-            <div class="card-cheer text-center space-y-4">
-                <h3 class="font-title text-xl font-bold">Ambiente de Equipo</h3>
-                <p class="text-cheer-white/70">Comunidad unida, disciplina y mentalidad ganadora.</p>
-            </div>
+                    <!-- Bloque expandible -->
+                    <div class="coach-details">
+                        <p class="coach-details-title">Trayectoria y enfoque</p>
+                        <p class="coach-details-text">
+                            Especialista en formación de equipos All Star, construcción de cultura de
+                            equipo y preparación mental para competencia. Enfoque en técnica limpia,
+                            seguridad y progresión responsable.
+                        </p>
+
+                        <div class="coach-tags-row">
+                            <span class="coach-chip">All Stars</span>
+                            <span class="coach-chip">Liderazgo</span>
+                            <span class="coach-chip">Team Culture</span>
+                        </div>
+                    </div>
+
+                    <!-- Botón toggle -->
+                    <button type="button" class="coach-toggle" data-coach-toggle>
+                        Ver más
+                    </button>
+                </div>
+            </article>
+
+
+            <!-- COACH 2 -->
+            <article class="coach-card" data-coach-card>
+                
+                <div class="coach-frame">
+                    <div class="coach-frame-accent coach-frame-accent--tl"></div>
+                    <div class="coach-frame-accent coach-frame-accent--br"></div>
+                    <img 
+                        src="assets/img/coach2.jpg" 
+                        alt="Tumbling Coach"
+                        class="coach-img"
+                    />
+
+                    <div class="coach-overlay">
+                        <div>
+                            <h3 class="coach-name">Coach Daniel</h3>
+                            <p class="coach-role">Tumbling · Técnica</p>
+                        </div>
+                        <div class="coach-icon-tag">
+                            <span class="coach-tag-label">Técnica</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="coach-body">
+                    <ul class="coach-bullets">
+                        <li>• Especialista en tumbling y progresiones seguras.</li>
+                        <li>• Enfoque en control corporal, fuerza y técnica fina.</li>
+                    </ul>
+
+                    <div class="coach-details">
+                        <p class="coach-details-title">Trayectoria y enfoque</p>
+                        <p class="coach-details-text">
+                            Ha trabajado con atletas desde niveles básicos hasta avanzados,
+                            priorizando la técnica limpia, prevención de lesiones y construcción
+                            progresiva de habilidades de tumbling.
+                        </p>
+
+                        <div class="coach-tags-row">
+                            <span class="coach-chip">Tumbling</span>
+                            <span class="coach-chip">Progresión</span>
+                            <span class="coach-chip">Control corporal</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="coach-toggle" data-coach-toggle>
+                        Ver más
+                    </button>
+                </div>
+            </article>
+
+
+            <!-- COACH 3 -->
+            <article class="coach-card" data-coach-card>
+                
+                <div class="coach-frame">
+                    <div class="coach-frame-accent coach-frame-accent--tl"></div>
+                    <div class="coach-frame-accent coach-frame-accent--br"></div>
+                    <img 
+                        src="assets/img/coach3.jpg" 
+                        alt="Stunts & Pyramids Coach"
+                        class="coach-img"
+                    />
+
+                    <div class="coach-overlay">
+                        <div>
+                            <h3 class="coach-name">Coach Camila</h3>
+                            <p class="coach-role">Stunts · Pyramids</p>
+                        </div>
+                        <div class="coach-icon-tag">
+                            <span class="coach-tag-label">Stunts</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="coach-body">
+                    <ul class="coach-bullets">
+                        <li>• Enfoque en stunts, pirámides y trabajo de grupo.</li>
+                        <li>• Comunicación clara y trabajo coordinado entre posiciones.</li>
+                    </ul>
+
+                    <div class="coach-details">
+                        <p class="coach-details-title">Trayectoria y enfoque</p>
+                        <p class="coach-details-text">
+                            Experiencia en construcción de pirámides competitivas y coordinación
+                            de grupos de stunt, con énfasis en timing, seguridad y presencia
+                            escénica en rutina.
+                        </p>
+
+                        <div class="coach-tags-row">
+                            <span class="coach-chip">Stunts</span>
+                            <span class="coach-chip">Pirámides</span>
+                            <span class="coach-chip">Timing</span>
+                        </div>
+                    </div>
+
+                    <button type="button" class="coach-toggle" data-coach-toggle>
+                        Ver más
+                    </button>
+                </div>
+            </article>
 
         </div>
-    </section>
+    </div>
+</section>
+
 
 
 
@@ -402,6 +557,7 @@
     <script src="assets/js/cheer.js"></script>
 </body>
 </html>
+
 
 
 
