@@ -110,3 +110,42 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+
+    const coachCards   = document.querySelectorAll("[data-coach-card]");
+    const coachToggles = document.querySelectorAll("[data-coach-toggle]");
+
+    coachToggles.forEach((btn) => {
+        btn.addEventListener("click", () => {
+
+            const card = btn.closest("[data-coach-card]");
+            const isExpanded = card.classList.contains("is-expanded");
+
+            // cerrar todos primero
+            coachCards.forEach(c => c.classList.remove("is-expanded"));
+
+            // si el que clickeaste no estaba expandido, expandirlo
+            if (!isExpanded) {
+                card.classList.add("is-expanded");
+                btn.textContent = "Cerrar";
+            } else {
+                btn.textContent = "Ver más";
+            }
+
+            // actualizar texto de los otros botones
+            coachToggles.forEach(otherBtn => {
+                const otherCard = otherBtn.closest("[data-coach-card]");
+                if (!otherCard.classList.contains("is-expanded")) {
+                    otherBtn.textContent = "Ver más";
+                }
+            });
+
+        });
+    });
+
+});
+</script>
+
+
