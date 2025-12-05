@@ -112,6 +112,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
 const coachData = {
     1: {
         img: "assets/coach1.jpg",
@@ -136,33 +137,53 @@ const coachData = {
     }
 };
 
-const coachCards = document.querySelectorAll("[data-coach]");
-const expanded = document.getElementById("coach-expanded");
-const closeBtn = document.getElementById("coach-close");
+const cards = document.querySelectorAll("[data-coach]");
+const template = document.querySelector("#coach-expanded-template");
 
-coachCards.forEach(card => {
+let currentPanel = null;
+
+cards.forEach(card => {
+
     card.addEventListener("click", () => {
+
         const id = card.getAttribute("data-coach");
         const data = coachData[id];
 
-        expanded.classList.remove("hidden");
-        expanded.scrollIntoView({ behavior: "smooth" });
+        // Cerrar panel anterior si está abierto
+        if (currentPanel) currentPanel.remove();
 
-        document.getElementById("expanded-img").src = data.img;
-        document.getElementById("expanded-name").textContent = data.name;
-        document.getElementById("expanded-role").textContent = data.role;
-        document.getElementById("expanded-desc").textContent = data.desc;
+        // Crear nuevo panel
+        const panel = document.createElement("div");
+        panel.className = "coach-expanded";
+        panel.innerHTML = `
+            <button class="coach-close">×</button>
 
-        const specs = document.getElementById("expanded-specialties");
-        specs.innerHTML = "";
-        data.specialties.forEach(s => {
-            const el = document.createElement("div");
-            el.textContent = s;
-            specs.appendChild(el);
+            <div class="coach-expanded-content">
+                <img src="${data.img}" class="expanded-img" />
+
+                <div class="expanded-info">
+                    <h3 class="expanded-name">${data.name}</h3>
+                    <p class="expanded-role">${data.role}</p>
+                    <p class="expanded-desc">${data.desc}</p>
+
+                    <div class="expanded-specialties">
+                        ${data.specialties.map(s => `<div>${s}</div>`).join("")}
+                    </div>
+                </div>
+            </div>
+        `;
+
+        // Insertarlo en el DOM justo debajo del coach clickeado
+        card.insertAdjacentElement("afterend", panel);
+
+        // Guardar referencia
+        currentPanel = panel;
+
+        panel.querySelector(".coach-close").addEventListener("click", () => {
+            panel.remove();
+            currentPanel = null;
         });
-    });
-});
 
-closeBtn.addEventListener("click", () => {
-    expanded.classList.add("hidden");
+        panel.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
 });
