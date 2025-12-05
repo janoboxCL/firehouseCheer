@@ -193,6 +193,11 @@
     box-shadow: 0 0 40px rgba(255, 40, 40, 0.55);
 }
 
+#coach-modal.hidden {
+    display: none !important;
+}
+
+
 /* MARCO DOBLE + ESQUINAS GEOMÉTRICAS */
 .coach-card::before {
     content: "";
@@ -347,6 +352,7 @@
     background: black;
     color: #FF3A3A;
 }
+
 
 
 
