@@ -315,8 +315,6 @@
 
         </div>
 
-      <!-- PANEL EXPANDIDO DINÁMICO (TEMPLATE) -->
-<div id="coach-expanded-template" class="hidden"></div>
 
         <!-- MOBILE STACK -->
         <div class="block md:hidden space-y-12 mt-20">
@@ -451,8 +449,33 @@
     </footer>
 
     <script src="assets/js/cheer.js"></script>
+
+	<!-- MODAL FLOTANTE COACH -->
+<div id="coach-modal" class="coach-modal hidden">
+    <div id="coach-modal-content" class="coach-modal-content">
+        
+        <button id="coach-modal-close" class="coach-modal-close">×</button>
+
+        <div class="coach-modal-inner">
+            
+            <img id="coach-modal-img" class="coach-modal-img" />
+
+            <div class="coach-modal-info">
+                <h3 id="coach-modal-name" class="coach-modal-name"></h3>
+                <p id="coach-modal-role" class="coach-modal-role"></p>
+                <p id="coach-modal-desc" class="coach-modal-desc"></p>
+
+                <div id="coach-modal-specialties" class="coach-modal-specialties"></div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
 </body>
 </html>
+
 
 
 
