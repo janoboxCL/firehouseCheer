@@ -427,6 +427,62 @@
     }
 }
 
+/* ================================
+   MODAL COACH – RESPONSIVE MOBILE
+   ================================ */
+@media (max-width: 768px) {
+
+    /* Modal más compacto */
+    #coach-modal-content {
+        flex-direction: column;
+        width: 92%;
+        padding: 20px;
+        gap: 20px;
+    }
+
+    /* Imagen ocupa 100% */
+    #coach-modal-img {
+        width: 100% !important;
+        height: auto;
+        max-height: 320px;
+        object-fit: cover;
+        border-radius: 14px;
+    }
+
+    /* Estructura vertical */
+    .coach-modal-inner {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    /* Texto al 100% */
+    .coach-modal-info {
+        width: 100%;
+    }
+
+    /* Títulos más amigables para mobile */
+    #coach-modal-name {
+        font-size: 1.8rem;
+        text-align: left;
+    }
+
+    #coach-modal-role {
+        font-size: 1rem;
+        margin-bottom: 6px;
+    }
+
+    #coach-modal-desc {
+        font-size: 0.95rem;
+    }
+
+    /* Cerrar modal mejor posicionado */
+    #coach-modal-close {
+        top: -10px;
+        right: -10px;
+        transform: scale(0.9);
+    }
+}
+
 
 
 
