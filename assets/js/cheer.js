@@ -118,7 +118,19 @@ const coachData = {
         img: "assets/img/coach_benja.jpeg",
         name: "Coach Ben",       
         role: "Coreografía • Técnica",
-        desc: "Entrenador y coreógrafo con 24 años de experiencia, formador de atletas y entrenadores, juez IASF y líder de procesos competitivos de alto rendimiento.",
+        //desc: "Entrenador y coreógrafo con 24 años de experiencia, formador de atletas y entrenadores, juez IASF y líder de procesos competitivos de alto rendimiento.",
+        desc: `
+Entrenador y coreógrafo con 24 años de trayectoria en Cheerleading competitivo, con foco en técnica avanzada, formación integral de atletas y construcción de rutinas de alto rendimiento.<br><br>
+
+<ul style="margin-left:0; padding-left:18px; list-style:none;">
+    <li style="margin-bottom:6px;">• Campeón nacional School y All Star desde 2001.</li>
+    <li style="margin-bottom:6px;">• Juez IASF (sello verde y rojo) con experiencia internacional.</li>
+    <li style="margin-bottom:6px;">• Formador de atletas y entrenadores en procesos de alto rendimiento.</li>
+    <li style="margin-bottom:6px;">• Coach de selecciones por más de 20 años.</li>
+    <li style="margin-bottom:6px;">• Participación en mundiales USASF en Orlando: 2008, 2010, 2013, 2016, 2023.</li>
+</ul>
+`
+
         specialties: ["Coreografía", "Técnica", "Acrobacia", "Liderazgo"]
 
 
@@ -182,6 +194,7 @@ modal.addEventListener("click", (e) => {
         modal.classList.add("hidden");
     }
 });
+
 
 
 
