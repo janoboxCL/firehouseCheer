@@ -193,11 +193,6 @@
     box-shadow: 0 0 40px rgba(255, 40, 40, 0.55);
 }
 
-#coach-modal.hidden {
-    display: none !important;
-}
-
-
 /* MARCO DOBLE + ESQUINAS GEOMÉTRICAS */
 .coach-card::before {
     content: "";
@@ -258,18 +253,22 @@
     color: #FFC400;
 }
 
-/* ================================================
-   FIX modal Firehouse – estructura correcta
-   ================================================ */
+/* ============================================================
+   MODAL EXPANDIDO FIREHOUSE PRO
+   ============================================================ */
 
-/* Forzar a que el modal oculto realmente no exista */
-#coach-modal.hidden {
-    display: none !important;
+#coach-modal {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.72);
+    backdrop-filter: blur(6px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
 }
 
-/* Contenedor interno del modal */
-.coach-modal-content {
-    position: relative;
+#coach-modal-content {
     width: 88%;
     max-width: 1200px;
     background: radial-gradient(circle at top left, rgba(255,50,50,0.20), rgba(0,0,0,0.95) 60%);
@@ -282,50 +281,39 @@
     animation: modalFade .35s ease;
 }
 
-/* Estructura interna: imagen + texto */
-.coach-modal-inner {
-    display: flex;
-    width: 100%;
-    gap: 32px;
+@keyframes modalFade {
+    from { opacity: 0; transform: scale(.92); }
+    to   { opacity: 1; transform: scale(1); }
 }
 
-/* Imagen izquierda */
-.coach-modal-img {
-    width: 40%;
-    height: auto;
-    border-radius: 16px;
+#coach-modal-content img {
+    width: 42%;
+    height: 100%;
     object-fit: cover;
+    border-radius: 14px;
     border: 2px solid #FF6A00;
 }
 
-/* Contenido a la derecha */
-.coach-modal-info {
-    width: 60%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-}
-
-/* Títulos */
-.coach-modal-name {
+/* TEXTO */
+.expanded-name {
     font-size: 2.4rem;
     font-weight: 800;
 }
 
-.coach-modal-role {
+.expanded-role {
     margin-top: 4px;
     font-size: 1.1rem;
     color: #FFC400;
 }
 
-.coach-modal-desc {
+.expanded-desc {
     margin-top: 16px;
-    color: #ddd;
     line-height: 1.55;
+    color: #ddd;
 }
 
-/* Tags */
-.coach-modal-specialties div {
+/* TAGS */
+.expanded-specialties div {
     display: inline-block;
     background: #C51515;
     padding: 6px 14px;
@@ -336,8 +324,8 @@
     font-size: .85rem;
 }
 
-/* Cerrar */
-.coach-modal-close {
+/* BOTÓN CERRAR */
+#coach-modal-close {
     position: absolute;
     top: -16px;
     right: -16px;
@@ -355,8 +343,9 @@
     border: 2px solid black;
     box-shadow: 0 0 14px rgba(255,0,0,0.7);
 }
-
-.coach-modal-close:hover {
+#coach-modal-close:hover {
     background: black;
     color: #FF3A3A;
 }
+
+
