@@ -277,17 +277,18 @@
  <!-- COACHES -->
 <section id="coaches" class="w-full py-32 bg-cheer-black">
     <div class="max-w-screen-xl mx-auto px-6">
-        
+
         <h2 class="font-title text-4xl md:text-5xl font-extrabold mb-16 text-center">
             Nuestros Coaches
         </h2>
 
-        <!-- DESKTOP: CARRUSEL 3 TARJETAS -->
-        <div class="hidden md:flex justify-center gap-10 relative">
+        <!-- CONTENEDOR DESKTOP -->
+        <div class="relative hidden md:flex justify-center gap-12">
 
+            <!-- TARJETA INDIVIDUAL -->
             <div class="coach-card" data-coach="1">
                 <div class="coach-frame"></div>
-                <img src="assets/coach1.jpg" class="coach-img">
+                <img src="assets/coach1.jpg" class="coach-img" />
                 <div class="coach-overlay">
                     <h3 class="coach-name">Coach Nombre 1</h3>
                     <p class="coach-role">Tumbling • Técnica</p>
@@ -296,7 +297,7 @@
 
             <div class="coach-card" data-coach="2">
                 <div class="coach-frame"></div>
-                <img src="assets/coach2.jpg" class="coach-img">
+                <img src="assets/coach2.jpg" class="coach-img" />
                 <div class="coach-overlay">
                     <h3 class="coach-name">Coach Nombre 2</h3>
                     <p class="coach-role">Stunts • Liderazgo</p>
@@ -305,7 +306,7 @@
 
             <div class="coach-card" data-coach="3">
                 <div class="coach-frame"></div>
-                <img src="assets/coach3.jpg" class="coach-img">
+                <img src="assets/coach3.jpg" class="coach-img" />
                 <div class="coach-overlay">
                     <h3 class="coach-name">Coach Nombre 3</h3>
                     <p class="coach-role">Jumps • Coreografía</p>
@@ -314,12 +315,29 @@
 
         </div>
 
+        <!-- PANEL EXPANDIDO INLINE (DESKTOP) -->
+        <div id="coach-expanded" class="coach-expanded hidden">
+            <button id="coach-close" class="coach-close">×</button>
+
+            <div class="coach-expanded-content">
+                <img id="expanded-img" class="expanded-img" />
+
+                <div class="expanded-info">
+                    <h3 id="expanded-name" class="expanded-name"></h3>
+                    <p id="expanded-role" class="expanded-role"></p>
+                    <p id="expanded-desc" class="expanded-desc"></p>
+
+                    <div id="expanded-specialties" class="expanded-specialties"></div>
+                </div>
+            </div>
+        </div>
+
         <!-- MOBILE STACK -->
-        <div class="block md:hidden space-y-12">
+        <div class="block md:hidden space-y-12 mt-20">
 
             <div class="coach-card-mobile" data-coach="1">
                 <div class="coach-frame"></div>
-                <img src="assets/coach1.jpg" class="coach-img">
+                <img src="assets/coach1.jpg" class="coach-img" />
                 <div class="coach-overlay">
                     <h3 class="coach-name">Coach Nombre 1</h3>
                     <p class="coach-role">Tumbling • Técnica</p>
@@ -328,7 +346,7 @@
 
             <div class="coach-card-mobile" data-coach="2">
                 <div class="coach-frame"></div>
-                <img src="assets/coach2.jpg" class="coach-img">
+                <img src="assets/coach2.jpg" class="coach-img" />
                 <div class="coach-overlay">
                     <h3 class="coach-name">Coach Nombre 2</h3>
                     <p class="coach-role">Stunts • Liderazgo</p>
@@ -337,25 +355,13 @@
 
             <div class="coach-card-mobile" data-coach="3">
                 <div class="coach-frame"></div>
-                <img src="assets/coach3.jpg" class="coach-img">
+                <img src="assets/coach3.jpg" class="coach-img" />
                 <div class="coach-overlay">
                     <h3 class="coach-name">Coach Nombre 3</h3>
                     <p class="coach-role">Jumps • Coreografía</p>
                 </div>
             </div>
 
-        </div>
-
-        <!-- PANEL EXPANDIDO -->
-        <div id="coach-panel" class="coach-panel hidden">
-            <button id="coach-close" class="coach-close">Cerrar</button>
-
-            <h3 id="panel-name" class="panel-name"></h3>
-            <p id="panel-role" class="panel-role"></p>
-
-            <p id="panel-description" class="panel-description"></p>
-
-            <ul id="panel-specialties" class="panel-specialties"></ul>
         </div>
 
     </div>
@@ -461,6 +467,7 @@
     <script src="assets/js/cheer.js"></script>
 </body>
 </html>
+
 
 
 
