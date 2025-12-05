@@ -139,14 +139,32 @@ Entrenador y coreógrafo con 24 años de trayectoria en Cheerleading competitivo
        img: "assets/img/coach_jc.jpeg",
         name: "Coach JC",
         role: "Preparación Física • Técnica",
-        desc: "Masoterapeuta y entrenador con foco en técnica individual, preparación física y desarrollo progresivo de atletas competitivos.",
+        desc: `
+Masoterapeuta y entrenador especializado en desarrollo técnico y preparación física aplicada al Cheerleading. Su enfoque combina precisión, control corporal y progresiones seguras para atletas en formación y niveles competitivos.<br><br>
+
+<ul style="margin-left:0; padding-left:18px; list-style:none;">
+    <li style="margin-bottom:6px;">• Campeón nacional categoría All Star.</li>
+    <li style="margin-bottom:6px;">• Entrenador de la selección del Colegio Alicante del Rosal.</li>
+    <li style="margin-bottom:6px;">• Especialista en movilidad, prevención de lesiones y técnica individual.</li>
+    <li style="margin-bottom:6px;">• Acompañamiento progresivo para atletas que buscan subir de nivel.</li>
+</ul>
+`,
         specialties: ["Técnica", "Preparación Física", "Movilidad", "Progresiones"]
     },
     3: {
         img: "assets/img/coach_jona.jpeg",
         name: "Coach Jona",
        role: "Preparación Física • Cheer Dance",
-    desc: "Entrenador y profesor de Educación Física, campeón nacional y panamericano, con enfoque en técnica, preparación física y ejecución coreográfica.",
+    desc: `
+Profesor de Educación Física y Personal Trainer con amplia experiencia en deportes de rendimiento. Campeón nacional y panamericano, integrante de equipos de Cheer Dance y All Star. Su trabajo integra fuerza, técnica y ejecución competitiva.<br><br>
+
+<ul style="margin-left:0; padding-left:18px; list-style:none;">
+    <li style="margin-bottom:6px;">• Campeón nacional y panamericano en categorías de alto rendimiento.</li>
+    <li style="margin-bottom:6px;">• Integrante de equipos de Cheer Dance a nivel competitivo.</li>
+    <li style="margin-bottom:6px;">• Entrenador de equipos School y All Star.</li>
+    <li style="margin-bottom:6px;">• Enfoque integral en técnica, coreografía y preparación física.</li>
+</ul>
+`,
     specialties: ["Técnica", "Cheer Dance", "Preparación Física", "Disciplina Competitiva"]
 }
     
@@ -194,6 +212,7 @@ modal.addEventListener("click", (e) => {
         modal.classList.add("hidden");
     }
 });
+
 
 
 
