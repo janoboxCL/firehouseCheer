@@ -129,7 +129,7 @@ Entrenador y coreógrafo con 24 años de trayectoria en Cheerleading competitivo
     <li style="margin-bottom:6px;">• Coach de selecciones por más de 20 años.</li>
     <li style="margin-bottom:6px;">• Participación en mundiales USASF en Orlando: 2008, 2010, 2013, 2016, 2023.</li>
 </ul>
-`
+`,
 
         specialties: ["Coreografía", "Técnica", "Acrobacia", "Liderazgo"]
 
@@ -194,6 +194,7 @@ modal.addEventListener("click", (e) => {
         modal.classList.add("hidden");
     }
 });
+
 
 
 
