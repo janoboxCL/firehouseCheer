@@ -169,9 +169,15 @@ document.querySelectorAll("[data-coach]").forEach(card => {
 });
 
 // Cerrar modal botón
-btnClose.addEventListener("click", () => modal.classList.add("hidden"));
+btnClose.addEventListener("click", () => {
+    modal.classList.add("hidden");
+});
 
 // Cerrar modal al hacer click fuera
 modal.addEventListener("click", (e) => {
-    if (e.target === modal) modal.classList.add("hidden");
+    if (e.target === modal) {
+        modal.classList.add("hidden");
+    }
 });
+
+
