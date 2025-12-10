@@ -545,28 +545,10 @@
     transform: rotateY(180deg);
 }
 
-.flip-front,
-.flip-back {
-    position: absolute;
-    inset: 0;
-    border-radius: 16px;
-    border: 2px solid #C51515;
-    box-shadow: 0 0 22px rgba(255, 20, 20, 0.35);
-    backface-visibility: hidden;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 22px;
-}
+
 
 /* FRONT */
-.flip-front {
-    background-size: cover;
-    background-position: center;
-    background-color: rgba(0,0,0,0.55);
-    background-blend-mode: multiply;
-}
+
 
 .flip-title {
     font-size: 1.8rem;
@@ -583,11 +565,7 @@
 }
 
 /* BACK */
-.flip-back {
-    background: linear-gradient(180deg, #000, #1A0000 45%, #000);
-    transform: rotateY(180deg);
-    text-align: left;
-}
+
 
 .flip-details {
     color: #ddd;
@@ -634,6 +612,7 @@
         font-size: 1.2rem;
     }
 }
+
 
 
 
