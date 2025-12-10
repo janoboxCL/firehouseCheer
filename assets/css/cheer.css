@@ -488,191 +488,190 @@
     }
 }
 
-/* ============================================================
-   FIREHOUSE PROGRAM CARDS — VISUAL UPGRADE EXTREME
-   ============================================================ */
+/* ============================================
+   PROGRAMAS FIREHOUSE V3 — diseño pro
+   ============================================ */
 
+/* Textura general del fondo */
+.program-bg-texture {
+    position: absolute;
+    inset: 0;
+    background:
+        url('../img/noise.png'),
+        radial-gradient(circle at top, rgba(255,80,20,0.28), transparent 60%);
+    opacity: 0.25;
+    mix-blend-mode: screen;
+}
+
+/* Flip card contenedor */
 .program-flip {
-    position:relative;
-    width:100%;
-    height:340px;
-    perspective:1600px;
-    transition:.3s;
+    width: 100%;
+    height: 380px;
+    perspective: 1400px;
 }
 
-/* Glow global */
-.program-flip:hover {
-    transform:translateY(-8px);
+/* Capa interna 3D */
+.program-inner {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform .9s cubic-bezier(.25,.85,.25,1);
 }
 
-.flip-inner {
-    width:100%;
-    height:100%;
-    position:relative;
-    transform-style:preserve-3d;
-    transition:transform .85s cubic-bezier(.25,.8,.25,1);
+.program-flip:hover .program-inner {
+    transform: rotateY(180deg);
 }
 
-.program-flip:hover .flip-inner {
-    transform:rotateY(180deg);
+/* ============================================
+   FRONT CARD
+   ============================================ */
+
+.program-front {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border: 3px solid #C51515;
+    transform: rotateY(0deg);
+    backface-visibility: hidden;
+    box-shadow: 0 0 25px rgba(255,0,0,0.4);
 }
 
-/* ------------------------------------------------------------
-   FRONT SIDE
-   ------------------------------------------------------------ */
-
-.flip-front {
-    position:absolute;
-    inset:0;
-    backface-visibility:hidden;
-    border-radius:20px;
-    overflow:hidden;
-
-    background: 
-        url('../img/llama.png'),
-        linear-gradient(180deg,#1A0000,#000);
-    background-size:cover;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-
-    /* Glow externo */
-    box-shadow:
-        0 0 22px rgba(255,40,40,.55),
-        0 0 65px rgba(255,90,20,.35);
+/* Gradiente de color competitivo */
+.program-front-gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(0,0,0,0.1), rgba(0,0,0,0.85));
 }
 
-/* ESQUINAS DIAGONALES — MARCO PRO FIREHOUSE */
-.flip-front::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    border-radius:20px;
-    padding:4px;
-    background:linear-gradient(135deg,#FF7A00,#C51515 60%);
-    -webkit-mask:
-        linear-gradient(#fff 0 0) content-box,
-        linear-gradient(#fff 0 0);
-    -webkit-mask-composite:xor;
-    pointer-events:none;
+/* Título */
+.prog-title {
+    position: absolute;
+    bottom: 70px;
+    width: 100%;
+    text-align: center;
+    font-size: 1.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
 }
 
-/* Textura interior */
-.flip-front::after {
-    content:"";
-    position:absolute;
-    inset:0;
-    background:url('../img/ruido.png');
-    opacity:.22;
-    mix-blend-mode:overlay;
+/* Línea estética roja */
+.prog-line {
+    position: absolute;
+    bottom: 56px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70px;
+    height: 3px;
+    background: #FF6A00;
 }
 
-/* Banner superior */
-.card-banner {
-    position:absolute;
-    top:0;
-    height:12px;
-    width:100%;
-    background:linear-gradient(90deg,#FFC400,#FF3A00,#C51515);
+/* Subtítulo */
+.prog-sub {
+    position: absolute;
+    bottom: 28px;
+    text-align: center;
+    width: 100%;
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #C51515;
 }
 
-/* Textos front */
-.flip-title {
-    font-size:2rem;
-    font-weight:900;
-    text-transform:uppercase;
-    color:white;
-    text-shadow:0 0 14px rgba(255,40,40,.65);
+/* ============================================
+   BACK CARD
+   ============================================ */
+
+.program-back {
+    position: absolute;
+    inset: 0;
+    border-radius: 18px;
+    background: linear-gradient(160deg, #0A0A0A, #1A0000 40%, #000);
+    border: 3px solid #C51515;
+    padding: 24px;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
 }
 
-.flip-sub {
-    margin-top:8px;
-    font-size:1.4rem;
-    font-weight:900;
-    color:#FF3A3A;
-    text-shadow:0 0 10px rgba(255,40,40,.55);
+.prog-back-title {
+    font-size: 1.6rem;
+    font-weight: 900;
+    margin-bottom: 14px;
 }
 
-/* ------------------------------------------------------------
-   BACK SIDE
-   ------------------------------------------------------------ */
-
-.flip-back {
-    position:absolute;
-    inset:0;
-    backface-visibility:hidden;
-    transform:rotateY(180deg);
-    border-radius:20px;
-    background:radial-gradient(circle at top,#2A0000,#000 70%);
-    padding:26px;
-
-    box-shadow:
-        0 0 35px rgba(255,40,40,.35),
-        inset 0 0 25px rgba(255,40,40,.25);
+.prog-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
-/* Textura interna */
-.flip-back::before {
-    content:"";
-    position:absolute;
-    inset:0;
-    background:url('../img/ruido.png');
-    opacity:.18;
-    mix-blend-mode:overlay;
+.prog-list li {
+    margin-bottom: 10px;
+    position: relative;
+    padding-left: 22px;
+    line-height: 1.5;
 }
 
-/* Título interno */
-.back-title {
-    font-size:1.3rem;
-    font-weight:800;
-    color:#FFC400;
-    margin-bottom:10px;
+/* Bullet tipo "competición" */
+.prog-list li::before {
+    content: "★";
+    color: #FFC400;
+    position: absolute;
+    left: 0;
+    top: 0;
+    font-size: 0.9rem;
 }
 
-/* Lista */
-.flip-details {
-    list-style:none;
-    padding:0;
-    margin:0 0 16px 0;
-    color:#ddd;
-    font-size:.95rem;
-    line-height:1.55;
+/* CTA individual */
+.prog-cta {
+    margin-top: 22px;
+    padding: 10px 22px;
+    background: #C51515;
+    color: white;
+    font-weight: 700;
+    border-radius: 8px;
+    border: 2px solid black;
+    transition: 0.3s ease;
 }
 
-.flip-details li {
-    margin-bottom:8px;
-    display:flex;
-    align-items:flex-start;
+.prog-cta:hover {
+    background: black;
+    color: #FF3A3A;
 }
 
-.flip-details li::before {
-    content:"🔥";
-    color:#FF3A00;
-    margin-right:6px;
-    font-size:1rem;
+/* ============================================
+   CTA GLOBAL
+   ============================================ */
+
+.prog-global-cta {
+    padding: 16px 42px;
+    background: linear-gradient(90deg, #C51515, #FF6A00);
+    color: white;
+    font-weight: 800;
+    border-radius: 14px;
+    border: 2px solid black;
+    text-transform: uppercase;
+    font-size: 1.2rem;
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    box-shadow: 0 0 30px rgba(255,50,10,0.45);
 }
 
-/* CTA */
-.flip-cta {
-    margin-top:auto;
-    display:inline-block;
-    padding:12px 20px;
-    background:linear-gradient(90deg,#C51515,#FF3A3A);
-    border-radius:10px;
-    color:white;
-    font-weight:700;
-    box-shadow:0 0 18px rgba(255,40,40,.55);
-    text-align:center;
-    transition:.25s ease;
+.prog-global-cta:hover {
+    background: black;
+    color: #FF3A3A;
 }
 
-.flip-cta:hover {
-    background:black;
-    color:#FF3A3A;
-    box-shadow:0 0 25px rgba(255,40,40,.75);
+/* ============================================
+   MOBILE OPTIMIZACIÓN
+   ============================================ */
+@media (max-width: 768px) {
+    .program-flip {
+        height: 320px;
+    }
+    .prog-title { font-size: 1.4rem; }
+    .prog-sub { font-size: 1rem; }
+    .prog-back-title { font-size: 1.3rem; }
 }
-
-
-
