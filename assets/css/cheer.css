@@ -487,3 +487,40 @@
         z-index: 99999;
     }
 }
+
+.program-card {
+    background: linear-gradient(180deg, #111 0%, #000 90%);
+    border: 2px solid #C51515;
+    border-radius: 14px;
+    padding: 30px;
+    text-align: center;
+    box-shadow: 0 0 26px rgba(255,20,20,0.28);
+    transition: .35s ease;
+}
+
+.program-card:hover {
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 0 38px rgba(255,20,20,0.55);
+    border-color: #FF3A3A;
+}
+
+.program-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 2rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.program-sub {
+    font-size: 2.2rem;
+    font-weight: 900;
+    color: #C51515;
+    margin-top: 6px;
+    margin-bottom: 16px;
+}
+
+.program-info {
+    color: #ddd;
+    line-height: 1.5;
+    font-size: 0.95rem;
+}
