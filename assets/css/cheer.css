@@ -488,6 +488,54 @@
     }
 }
 
+
+/* SOLO DESKTOP */
+@media (min-width: 768px) {
+
+    .coach-card {
+        height: 520px; /* antes 600px → reduce elongación */
+    }
+
+    .coach-img {
+        object-fit: cover;
+        object-position: center top; /* prioriza rostro */
+        transform: scale(1.05); /* zoom leve para mejor encuadre */
+    }
+}
+
+/* CTA VISUAL */
+.coach-overlay::after {
+    content: "Ver perfil";
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #FF6A00;
+    opacity: 0.85;
+    letter-spacing: .4px;
+}
+
+/* Refuerzo en hover */
+.coach-card:hover .coach-overlay::after {
+    color: #FFC400;
+}
+
+
+.coach-card {
+    cursor: pointer;
+}
+
+.coach-card::before {
+    transition: opacity .3s ease;
+}
+
+.coach-card:hover::before {
+    opacity: 1;
+}
+.coach-card:hover .coach-overlay {
+    background: rgba(0,0,0,0.75);
+}
+
 /* ============================================================
    PROGRAMAS FIREHOUSE — FLIP CARDS V3 (PROFESIONAL)
    ============================================================ */
