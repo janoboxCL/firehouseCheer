@@ -223,6 +223,147 @@ modal.addEventListener("click", (e) => {
 });
 
 
+// ============================================================
+// GALERÍA DINÁMICA DESDE CARPETAS
+// ============================================================
+document.addEventListener("DOMContentLoaded", () => {
+    const tabsContainer = document.getElementById("gallery-tabs");
+    const grid = document.getElementById("gallery-grid");
+    const title = document.getElementById("gallery-title");
+    const counter = document.getElementById("gallery-counter");
+    const lightbox = document.getElementById("gallery-lightbox");
+    const lightboxImg = document.getElementById("lightbox-image");
+    const lightboxCaption = document.getElementById("lightbox-caption");
+    const lightboxClose = document.getElementById("lightbox-close");
+
+    if (!tabsContainer || !grid) return;
+
+    let galleries = [];
+    let activeGallery = null;
+
+    async function loadGalleries() {
+        try {
+            const response = await fetch("assets/img/gallery-index.json", { cache: "no-store" });
+            if (response.ok) {
+                const data = await response.json();
+                if (Array.isArray(data.galleries) && data.galleries.length) {
+                    return data.galleries.map((g) => ({ ...g, images: g.images || [] }));
+                }
+            }
+        } catch (err) {
+            console.warn("No se pudo cargar el índice de galería, usando fallback", err);
+        }
+        return [];
+    }
+
+    function setActiveGallery(id) {
+        activeGallery = id;
+        renderTabs();
+        renderGrid();
+    }
+
+    function renderTabs() {
+        tabsContainer.innerHTML = "";
+        galleries.forEach((gallery) => {
+            const tab = document.createElement("button");
+            tab.type = "button";
+            tab.className = `gallery-tab ${gallery.id === activeGallery ? "active" : ""}`;
+            tab.dataset.gallery = gallery.id;
+            tab.innerHTML = `
+                <span class="pill">${gallery.images.length} fotos</span>
+                <span>${gallery.name}</span>
+            `;
+            tab.addEventListener("click", () => setActiveGallery(gallery.id));
+            tabsContainer.appendChild(tab);
+        });
+    }
+
+    function openLightbox(src, captionText) {
+        if (!lightbox) return;
+        lightboxImg.src = src;
+        lightboxCaption.textContent = captionText;
+        lightbox.classList.remove("hidden");
+        document.body.style.overflow = "hidden";
+    }
+
+    function closeLightbox() {
+        lightbox?.classList.add("hidden");
+        document.body.style.overflow = "";
+    }
+
+    function renderGrid() {
+        const gallery = galleries.find((g) => g.id === activeGallery) || galleries[0];
+        if (!gallery) return;
+
+        title.textContent = gallery.name;
+        counter.textContent = gallery.images.length;
+
+        grid.innerHTML = "";
+
+        if (!gallery.images.length) {
+            const empty = document.createElement("div");
+            empty.className = "gallery-empty";
+            empty.innerHTML = `
+                <p class="font-title text-xl">Aún no hay fotos publicadas.</p>
+                <p class="text-sm">Agrega carpetas dentro de <code>assets/img/galeria/</code> con tus imágenes para que aparezcan aquí.</p>
+            `;
+            grid.appendChild(empty);
+            return;
+        }
+
+        gallery.images.forEach((imgSrc, idx) => {
+            const card = document.createElement("button");
+            card.type = "button";
+            card.className = "gallery-card";
+            card.innerHTML = `
+                <img src="${imgSrc}" alt="${gallery.name} ${idx + 1}">
+                <div class="gallery-info">
+                    <p>${gallery.name}</p>
+                    <span class="pill pill-red">#${idx + 1}</span>
+                </div>`;
+            card.addEventListener("click", () => openLightbox(imgSrc, `${gallery.name} · ${idx + 1}`));
+            grid.appendChild(card);
+        });
+    }
+
+    lightboxClose?.addEventListener("click", closeLightbox);
+    lightbox?.addEventListener("click", (e) => {
+        if (e.target === lightbox) closeLightbox();
+    });
+    document.addEventListener("keydown", (e) => {
+        if (e.key === "Escape" && !lightbox?.classList.contains("hidden")) {
+            closeLightbox();
+        }
+    });
+
+    loadGalleries().then((data) => {
+        galleries = data;
+        if (!galleries.length) {
+            title.textContent = "Galería";
+            counter.textContent = "0";
+            grid.innerHTML = "";
+            const empty = document.createElement("div");
+            empty.className = "gallery-empty";
+            empty.innerHTML = `
+                <p class="font-title text-xl">Aún no hay fotos publicadas.</p>
+                <p class="text-sm">Añade carpetas e imágenes en <code>assets/img/galeria/</code> para habilitar la galería.</p>
+            `;
+            grid.appendChild(empty);
+            tabsContainer.innerHTML = "";
+            const tabEmpty = document.createElement("div");
+            tabEmpty.className = "gallery-empty-tab";
+            tabEmpty.textContent = "Sin álbumes aún";
+            tabsContainer.appendChild(tabEmpty);
+            return;
+        }
+
+        activeGallery = galleries[0]?.id || null;
+        renderTabs();
+        renderGrid();
+    });
+});
+
+
 
 
 
