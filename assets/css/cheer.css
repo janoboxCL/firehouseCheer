@@ -1405,113 +1405,106 @@ header{
     .lightbox-meta { flex-direction: column; align-items: flex-start; }
 }
 
-/* ===== HEADER FUSIÓN (TOP) ===== */
-.header-fusion{
+/* ===== BLOQUE SUPERIOR UNIFICADO ===== */
+
+.fire-bg-main{
+  background:
+    radial-gradient(1400px 900px at 20% 15%, rgba(255,90,0,0.28), transparent 60%),
+    radial-gradient(1000px 800px at 80% 25%, rgba(255,40,40,0.22), transparent 65%),
+    linear-gradient(180deg, #1a0606 0%, #0b0a0a 60%);
+}
+
+/* HEADER y NAV no tienen fondo propio */
+.header-unified{
   position: relative;
+  background: transparent;
 }
 
-/* TOPBAR: integrada, sobria */
-.topbar-fusion{
-  background: rgba(0,0,0,0.10);
-  border-bottom: 1px solid rgba(255,120,30,0.10);
-}
-
-/* CTA pill premium */
-.topbar-pill{
-  display:inline-flex;
-  align-items:center;
-  gap:.5rem;
-  padding:.38rem .78rem;
-  border-radius:999px;
-  font-weight: 700;
-  letter-spacing: .02em;
-  color: rgba(20,10,10,0.92);
-  background: linear-gradient(90deg, rgba(255,106,26,1), rgba(255,196,0,1));
-  box-shadow: 0 10px 26px rgba(255,120,0,0.18);
-  border: 1px solid rgba(255,255,255,0.14);
-  transition: transform .18s ease, filter .18s ease;
-}
-.topbar-pill:hover{
-  transform: translateY(-1px);
-  filter: brightness(1.04);
-}
-
-/* NAV: en top es TRANSPARENTE para fundirse con el hero */
-.nav-fusion{
+.nav-unified{
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(0,0,0,0.00);
-  backdrop-filter: none;
-  -webkit-backdrop-filter: none;
-  border-bottom: 1px solid rgba(0,0,0,0);
-  transition: background .22s ease, backdrop-filter .22s ease, border-color .22s ease;
+  background: transparent;
+  border-bottom: none;
+  transition: background .22s ease, backdrop-filter .22s ease;
 }
 
-/* Links editoriales */
-.nav-link{
+.nav-unified.is-scrolled{
+  background: rgba(10,8,8,0.65);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,120,0,0.18);
+}
+
+/* ===== TOPBAR EVENTO ===== */
+
+.topbar-event{
   position: relative;
-  color: rgba(255,255,255,0.88);
-  transition: color .18s ease;
+  background:
+    radial-gradient(800px 200px at 30% 0%, rgba(255,120,0,0.35), transparent 65%),
+    radial-gradient(800px 200px at 70% 0%, rgba(255,40,40,0.30), transparent 65%),
+    linear-gradient(90deg, rgba(30,8,8,0.85), rgba(10,8,8,0.85));
+  border-bottom: 1px solid rgba(255,140,0,0.25);
 }
-.nav-link:hover{
-  color: rgba(255,140,0,0.95);
-}
-.nav-link::after{
+
+/* Línea superior energética */
+.topbar-event::before{
   content:"";
   position:absolute;
-  left:0; right:0; bottom:-10px;
+  top:0;
+  left:0;
+  right:0;
   height:2px;
-  background: linear-gradient(90deg,
+  background: linear-gradient(
+    90deg,
     rgba(255,40,40,0),
-    rgba(255,120,0,0.90),
-    rgba(255,200,80,0.70),
+    rgba(255,40,40,0.7),
+    rgba(255,140,0,0.9),
+    rgba(255,200,80,0.6),
     rgba(255,200,80,0)
   );
-  transform: scaleX(0);
-  transform-origin: center;
-  transition: transform .16s ease;
-  opacity: .85;
-}
-.nav-link:hover::after{
-  transform: scaleX(1);
 }
 
-/* Logo con presencia (sin agrandar demasiado el header) */
-.logo-premium{
-  filter: drop-shadow(0 12px 22px rgba(0,0,0,0.55))
-          drop-shadow(0 0 18px rgba(255,120,0,0.16));
+/* Badge fuego */
+.topbar-badge{
+  font-size: 14px;
 }
 
-/* ===== ESTADO SCROLLED (se activa por JS) ===== */
-.nav-fusion.is-scrolled{
-  background: rgba(8,7,7,0.62);
-  backdrop-filter: blur(14px);
-  -webkit-backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255,120,30,0.18);
+/* Texto */
+.topbar-text{
+  color: rgba(255,255,255,0.92);
+  font-size: 0.85rem;
 }
 
-/* Heat line SOLO cuando scrolleas (más premium que siempre visible) */
-.nav-fusion.is-scrolled::after{
-  content:"";
-  position:absolute;
-  left:0; right:0; bottom:-1px;
-  height:2px;
-  background: linear-gradient(90deg,
-    rgba(255,40,40,0),
-    rgba(255,40,40,0.60),
-    rgba(255,120,0,0.82),
-    rgba(255,200,80,0.45),
-    rgba(255,200,80,0)
-  );
-  box-shadow: 0 0 22px rgba(255,120,0,0.20);
-  opacity: .95;
+/* CTA botón */
+.topbar-cta{
+  padding: .35rem .75rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: .8rem;
+  background: linear-gradient(90deg, #ff6a00, #ffc400);
+  color: #1a0b05;
+  box-shadow: 0 10px 25px rgba(255,120,0,.30);
+  transition: transform .18s ease, filter .18s ease;
+}
+.topbar-cta:hover{
+  transform: translateY(-1px);
+  filter: brightness(1.05);
 }
 
-/* Opcional: topbar se hace un poco más sólida al scrollear */
-.topbar-fusion.is-scrolled{
-  background: rgba(8,7,7,0.45);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border-bottom: 1px solid rgba(255,120,30,0.14);
+/* Botón cerrar */
+.topbar-close{
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.6);
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  transition: color .2s ease;
+}
+.topbar-close:hover{
+  color: #fff;
+}
+
+#topbar{
+  transition: opacity .25s ease, height .25s ease;
 }

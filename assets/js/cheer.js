@@ -125,7 +125,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const coachData = {
     1: {
         img: "assets/img/coach_benja.jpeg",
-        name: "Coach Ben",       
+        name: "Coach Ben",
         role: "Coreografía • Técnica",
         //desc: "Entrenador y coreógrafo con 24 años de experiencia, formador de atletas y entrenadores, juez IASF y líder de procesos competitivos de alto rendimiento.",
         desc: `
@@ -176,7 +176,7 @@ Profesor de Educación Física y Personal Trainer con amplia experiencia en depo
 `,
     specialties: ["Técnica", "Cheer Dance", "Preparación Física", "Disciplina Competitiva"]
 }
-    
+
 };
 
 // Elementos del modal
@@ -467,24 +467,39 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 
-
-
-
-
-
-
+/* ===== TOPBAR EVENTO CERRABLE ===== */
 
 (function(){
+  const topbar = document.getElementById("topbar");
+  const closeBtn = document.getElementById("topbar-close");
   const nav = document.getElementById("site-nav");
-  const topbar = document.querySelector(".topbar-fusion");
-  if(!nav) return;
 
+  if(!topbar) return;
+
+  // Persistencia
+  const dismissed = localStorage.getItem("topbar-dismissed");
+  if(dismissed === "true") {
+    topbar.style.display = "none";
+  }
+
+  if(closeBtn){
+    closeBtn.addEventListener("click", function(){
+      topbar.style.opacity = "0";
+      topbar.style.height = "0";
+      topbar.style.overflow = "hidden";
+      localStorage.setItem("topbar-dismissed", "true");
+    });
+  }
+
+  // Nav glass al scroll
   const onScroll = () => {
     const scrolled = window.scrollY >= 24;
-    nav.classList.toggle("is-scrolled", scrolled);
-    if(topbar) topbar.classList.toggle("is-scrolled", scrolled);
+    if(nav){
+      nav.classList.toggle("is-scrolled", scrolled);
+    }
   };
 
   window.addEventListener("scroll", onScroll, { passive:true });
   onScroll();
+
 })();
