@@ -1508,3 +1508,38 @@ header{
 #topbar{
   transition: opacity .25s ease, height .25s ease;
 }
+
+
+/* =========================
+   TOP UNIFICADO (HEADER+HERO)
+   ========================= */
+
+.fh-top-unified{
+  position: relative;
+  overflow: hidden;
+}
+
+/* Topbar y nav: sin fondo propio (para que se vea el fondo unificado) */
+.topbar-event{
+  background: transparent !important;
+  border-bottom: 1px solid rgba(255,140,0,0.20);
+}
+
+.topbar-event::before{
+  opacity: .9;
+}
+
+/* Nav transparente por defecto */
+.nav-unified{
+  background: transparent !important;
+  border-bottom: none !important;
+}
+
+/* Glass SOLO cuando scrolleas */
+.nav-unified.is-scrolled{
+  background: rgba(10,8,8,0.55) !important;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,120,0,0.18) !important;
+}
+
