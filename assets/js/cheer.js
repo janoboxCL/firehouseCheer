@@ -473,3 +473,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 
+
+(function(){
+  const nav = document.getElementById("site-nav");
+  const topbar = document.querySelector(".topbar-fusion");
+  if(!nav) return;
+
+  const onScroll = () => {
+    const scrolled = window.scrollY >= 24;
+    nav.classList.toggle("is-scrolled", scrolled);
+    if(topbar) topbar.classList.toggle("is-scrolled", scrolled);
+  };
+
+  window.addEventListener("scroll", onScroll, { passive:true });
+  onScroll();
+})();
