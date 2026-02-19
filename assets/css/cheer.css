@@ -1804,3 +1804,163 @@ header{
     font-size: .82rem;
   }
 }
+
+/* ===== ACADEMIA: OFERTA (precio + 2 clases) ===== */
+
+.academy-offer-wrap{
+  max-width: 1100px;
+  margin: 28px auto 0;
+  padding: 0 24px;
+}
+
+.academy-offer{
+  position: relative;
+  border-radius: 18px;
+  overflow: hidden;
+  background:
+    radial-gradient(900px 320px at 20% 0%, rgba(255,106,0,.18), transparent 60%),
+    radial-gradient(700px 320px at 80% 10%, rgba(197,21,21,.16), transparent 60%),
+    rgba(0,0,0,.45);
+  border: 1px solid rgba(255,120,0,.18);
+  box-shadow: 0 20px 60px rgba(255, 70, 0, 0.10);
+  backdrop-filter: blur(6px);
+  padding: 26px 26px 22px;
+}
+
+.academy-offer::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  pointer-events:none;
+  background: linear-gradient(135deg, rgba(255,106,0,.10), transparent 45%);
+}
+
+.academy-offer-badge{
+  position:absolute;
+  top: -14px;
+  left: 18px;
+  background: #0a0a0a;
+  border: 2px solid rgba(255,106,0,.85);
+  border-radius: 999px;
+  padding: 10px 14px;
+  display: inline-flex;
+  align-items: baseline;
+  gap: 10px;
+  box-shadow: 0 14px 35px rgba(0,0,0,.45);
+}
+
+.academy-offer-badge span{
+  font-size: .72rem;
+  letter-spacing: .22em;
+  opacity: .9;
+}
+
+.academy-offer-badge strong{
+  font-size: 1.05rem;
+  font-weight: 900;
+  color: var(--fh-orange);
+}
+
+.academy-offer-price{
+  text-align: center;
+  padding-top: 12px;
+}
+
+.academy-offer-label{
+  font-size: .85rem;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,.75);
+}
+
+.academy-offer-amount{
+  font-size: clamp(2.4rem, 3.4vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-top: 6px;
+  color: #fff;
+  text-shadow: 0 0 22px rgba(255,106,0,.20);
+}
+
+.academy-offer-note{
+  margin-top: 8px;
+  font-size: .95rem;
+  color: rgba(255,196,0,.9);
+}
+
+.academy-offer-frequency{
+  margin-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  padding-top: 16px;
+  text-align: center;
+}
+
+.academy-offer-kicker{
+  font-weight: 900;
+  letter-spacing: .06em;
+}
+
+.academy-offer-list{
+  margin: 10px auto 0;
+  padding: 0;
+  list-style: none;
+  display: inline-grid;
+  gap: 8px;
+  text-align: left;
+  color: rgba(255,255,255,.82);
+}
+
+.academy-offer-list li{
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.academy-offer-list .dot{
+  width: 8px;
+  height: 8px;
+  border-radius: 99px;
+  background: linear-gradient(135deg, var(--fh-red), var(--fh-orange), var(--fh-yellow));
+  box-shadow: 0 0 14px rgba(255,106,0,.45);
+}
+
+.academy-offer-meta{
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.academy-meta-block{
+  border-radius: 14px;
+  padding: 14px 14px 12px;
+  background: rgba(0,0,0,.35);
+  border: 1px solid rgba(255,255,255,.07);
+}
+
+.academy-meta-title{
+  font-weight: 800;
+  color: rgba(255,255,255,.92);
+  margin-bottom: 6px;
+}
+
+.academy-meta-text{
+  color: rgba(255,255,255,.72);
+  line-height: 1.35;
+  font-size: .95rem;
+}
+
+/* Responsive */
+@media (max-width: 900px){
+  .academy-offer-meta{
+    grid-template-columns: 1fr;
+  }
+  .academy-offer-badge{
+    position: static;
+    margin: 0 auto 10px;
+    width: fit-content;
+  }
+  .academy-offer{
+    padding-top: 18px;
+  }
+}
