@@ -119,6 +119,18 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 
+// Flip cards: categorías (click / tap)
+document.addEventListener("DOMContentLoaded", () => {
+    document.querySelectorAll("#categorias .fh-cat").forEach(card => {
+        card.addEventListener("click", (e) => {
+            const isLink = e.target.closest("a");
+            if (isLink) return;
+
+            card.classList.toggle("is-flipped");
+        });
+    });
+});
+
 
 
 
