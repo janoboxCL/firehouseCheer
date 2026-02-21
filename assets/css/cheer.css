@@ -2709,12 +2709,24 @@ header{
   position: relative;
   z-index: 2;
   margin-top: 18px;
+
+  /* ✅ tipografía más estable */
   font-weight: 900;
-  letter-spacing: .2em;
   text-transform: uppercase;
-  font-size: clamp(1.95rem, 2.05vw, 2.3rem);
   line-height: 1.05;
   color: #fff;
+
+  /* ✅ evita irse al borde */
+  max-width: 92%;
+  margin-left: auto;
+  margin-right: auto;
+
+  /* ✅ el tamaño se adapta mejor */
+  font-size: clamp(1.65rem, 2.05vw, 2.25rem);
+
+  /* ✅ tracking más controlado para no “explotar” el ancho */
+  letter-spacing: clamp(.08em, 0.9vw, .18em);
+
   text-wrap: balance;
 
   text-shadow:
@@ -2722,15 +2734,20 @@ header{
     0 0 22px rgba(255,106,0,.18);
 }
 
-#categorias .fh-cat[data-team="firefighters"] .fh-cat-team,
-#categorias .fh-cat[data-team="firediamonds"] .fh-cat-team{
-  letter-spacing: .16em;
-}
-
 /* Solo para nombres largos (FIREFIGHTERS) */
 #categorias .fh-cat-team--tight{
-  font-size: clamp(1.75rem, 1.75vw, 2.05rem);
-  letter-spacing: .18em;
+  font-size: clamp(1.45rem, 1.7vw, 1.95rem);
+  letter-spacing: clamp(.06em, 0.7vw, .14em);
+}
+
+/* FIRELIGHTS: un pelín menos tracking */
+#categorias .fh-cat[data-team="firelights"] .fh-cat-team{
+  letter-spacing: clamp(.07em, 0.85vw, .16em);
+}
+
+/* FIREFIGHTERS: aún más compacto */
+#categorias .fh-cat[data-team="firefighters"] .fh-cat-team{
+  letter-spacing: clamp(.05em, 0.65vw, .12em);
 }
 
 /* edades como “badge block” */
