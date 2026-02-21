@@ -855,7 +855,7 @@ header{
 }
 
 /* Acción del flip */
-.flip-wrapper:hover .flip-inner {
+.program-card.flip-wrapper:hover .flip-inner {
     transform: rotateY(180deg);
 }
 
@@ -936,7 +936,7 @@ header{
     transition: transform .35s ease;
 }
 
-.flip-wrapper:hover .program-title {
+.program-card.flip-wrapper:hover .program-title {
     transform: translateY(-3px);
 }
 
@@ -1038,7 +1038,7 @@ header{
     }
 
     /* Flip vertical opcional para evitar cortes en scroll */
-    .flip-wrapper:hover .flip-inner {
+    .program-card.flip-wrapper:hover .flip-inner {
         transform: rotateX(180deg);
     }
 
@@ -2429,7 +2429,7 @@ header{
 .categories-grid{
   margin-top:70px;
   display:grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 360px));
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap:32px;
   justify-content:center;
   align-content:start;
@@ -2526,7 +2526,7 @@ header{
 #categorias .fh-cat{
   position: relative;
   width: 100%;
-  max-width: 360px;
+  max-width: 330px;
   height: 520px;
   perspective: 1200px;
   perspective-origin: center center;
@@ -2535,6 +2535,13 @@ header{
   will-change: transform;
   contain: layout paint;
   justify-self: center;
+  isolation: isolate;
+  z-index: 1;
+}
+
+#categorias .fh-cat:hover,
+#categorias .fh-cat.is-flipped{
+  z-index: 10;
 }
 
 /* inner: rota sin afectar layout */
@@ -2825,4 +2832,15 @@ header{
   box-shadow:
     0 20px 70px rgba(0,0,0,.65),
     0 0 70px color-mix(in srgb, var(--accent) 25%, transparent);
+}
+
+@media (min-width: 1200px){
+  .categories-grid{
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    max-width: 1440px;
+  }
+
+  #categorias .fh-cat{
+    max-width: 310px;
+  }
 }
