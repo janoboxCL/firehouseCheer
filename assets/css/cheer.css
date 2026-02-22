@@ -2873,3 +2873,384 @@ header{
     max-width: 310px;
   }
 }
+
+/* ============================================================
+   CONTACTO + FOOTER — “BROCHE DE ORO” (Firehouse Premium)
+   ============================================================ */
+
+.fh-contact{
+  padding: 110px 0 60px;
+}
+
+.fh-contact__wrap{
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+}
+
+/* Head */
+.fh-contact__head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 18px;
+  margin-bottom: 22px;
+}
+
+.fh-contact__logo{
+  width: 110px;
+  height: auto;
+  filter:
+    drop-shadow(0 14px 26px rgba(0,0,0,.55))
+    drop-shadow(0 0 16px rgba(255,140,0,.25));
+  flex: 0 0 auto;
+}
+
+.fh-contact__titlewrap{ min-width: 0; }
+.fh-contact__title{
+  font-family: "Montserrat", system-ui, sans-serif;
+  font-weight: 900;
+  letter-spacing: .02em;
+  font-size: clamp(2rem, 3.2vw, 3rem);
+}
+.fh-contact__subtitle{
+  margin-top: 8px;
+  color: rgba(255,255,255,.74);
+  max-width: 58ch;
+}
+
+.fh-contact__cta{
+  display:flex;
+  gap: 10px;
+  flex: 0 0 auto;
+}
+
+/* Buttons */
+.fh-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  gap: 10px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  font-weight: 900;
+  letter-spacing: .02em;
+  text-decoration:none;
+  border: 1px solid rgba(255,255,255,.14);
+  background: rgba(0,0,0,.35);
+  color: #fff;
+  box-shadow: 0 14px 35px rgba(0,0,0,.35);
+  transition: transform .18s ease, filter .18s ease, border-color .18s ease;
+}
+.fh-btn:hover{ transform: translateY(-2px); filter: brightness(1.03); border-color: rgba(255,140,0,.55); }
+.fh-btn--primary{
+  background: linear-gradient(90deg, #ff6a00, #ffc400);
+  color: #1a0b05;
+  border-color: rgba(0,0,0,.55);
+}
+.fh-btn--wa{
+  border-color: rgba(255,120,0,.30);
+  box-shadow: 0 14px 35px rgba(255,120,0,.10);
+}
+.fh-ico{ transform: translateY(1px); }
+
+/* Main Card */
+.fh-contact__card{
+  display:grid;
+  grid-template-columns: 1.1fr .9fr;
+  gap: 18px;
+  padding: 18px;
+  border-radius: 22px;
+  background: rgba(10,8,8,0.66);
+  border: 1px solid rgba(255,120,0,0.16);
+  box-shadow: 0 22px 70px rgba(0,0,0,0.60), 0 0 70px rgba(255,120,0,0.08);
+  backdrop-filter: blur(12px);
+  position: relative;
+  overflow: hidden;
+}
+
+.fh-contact__card::before{
+  content:"";
+  position:absolute;
+  inset:-2px;
+  border-radius: 24px;
+  pointer-events:none;
+  background:
+    radial-gradient(circle at 20% 20%, rgba(255,120,0,0.18), transparent 40%),
+    radial-gradient(circle at 80% 80%, rgba(255,60,0,0.14), transparent 50%);
+  opacity:.8;
+}
+
+.fh-contact__info{
+  display:flex;
+  flex-direction: column;
+  gap: 14px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Blocks */
+.fh-contact__block{
+  border-radius: 18px;
+  padding: 16px;
+  background: rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.10);
+}
+
+.fh-contact__kicker{
+  font-weight: 900;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: rgba(255,196,0,.95);
+  font-size: .78rem;
+  margin-bottom: 12px;
+}
+
+.fh-contact__item{
+  display:flex;
+  gap: 12px;
+  padding: 10px 0;
+  border-top: 1px solid rgba(255,255,255,.06);
+}
+.fh-contact__item:first-of-type{ border-top: none; padding-top: 0; }
+
+.fh-contact__icon{
+  width: 40px;
+  height: 40px;
+  border-radius: 14px;
+  display:grid;
+  place-items:center;
+  background: linear-gradient(135deg, rgba(255,106,0,.22), rgba(0,0,0,.35));
+  border: 1px solid rgba(255,120,0,.20);
+  box-shadow: inset 0 0 22px rgba(255,120,0,.10);
+  flex: 0 0 auto;
+}
+
+.fh-contact__label{
+  color: rgba(255,255,255,.60);
+  font-size: .9rem;
+}
+.fh-contact__value{
+  font-weight: 800;
+  margin-top: 2px;
+}
+.fh-contact__meta{
+  margin-top: 4px;
+  color: rgba(255,255,255,.72);
+  font-size: .92rem;
+}
+
+.fh-contact__link{
+  color: rgba(255,196,0,.95);
+  text-decoration: none;
+}
+.fh-contact__link:hover{ text-decoration: underline; }
+
+/* Hours */
+.fh-hours__head{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+.fh-hours__title{
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+.fh-hours__chip{
+  padding: 8px 10px;
+  border-radius: 999px;
+  font-weight: 800;
+  font-size: .8rem;
+  background: rgba(255,106,0,.12);
+  border: 1px solid rgba(255,106,0,.22);
+  color: rgba(255,255,255,.88);
+}
+
+.fh-hours__grid{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.fh-hours__card{
+  padding: 14px;
+  border-radius: 16px;
+  background: linear-gradient(135deg, rgba(255,106,0,0.10), rgba(0,0,0,0.35));
+  border: 1px solid rgba(255,255,255,.10);
+}
+.fh-hours__top{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+}
+.fh-hours__ico{ font-size: 1.15rem; }
+.fh-hours__name{ font-weight: 900; }
+.fh-hours__time{
+  margin-top: 8px;
+  font-weight: 900;
+  color: rgba(255,196,0,.95);
+}
+.fh-hours__note{
+  margin-top: 6px;
+  color: rgba(255,255,255,.70);
+  font-size: .92rem;
+}
+
+/* micro line */
+.fh-contact__micro{
+  margin-top: 12px;
+  color: rgba(255,255,255,.70);
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  font-weight: 700;
+  font-size: .92rem;
+}
+.fh-dot{
+  width: 10px;
+  height: 10px;
+  border-radius: 99px;
+  background: linear-gradient(135deg, #ff6a00, #ffc400);
+  box-shadow: 0 0 16px rgba(255,120,0,.45);
+}
+
+/* Map */
+.fh-contact__map{
+  position: relative;
+  z-index: 1;
+  border-radius: 18px;
+  overflow: hidden;
+  border: 1px solid rgba(255,120,0,0.20);
+  background: rgba(0,0,0,.28);
+  display:flex;
+  flex-direction: column;
+  min-height: 420px;
+}
+
+.fh-contact__maphead{
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 14px 14px;
+  background: linear-gradient(120deg, rgba(197, 21, 21, 0.22), rgba(255,120,0,0.10), rgba(0,0,0,0.55));
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.fh-contact__maptitle{
+  font-weight: 900;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.fh-contact__maplink{
+  color: rgba(255,196,0,.95);
+  text-decoration:none;
+  font-weight: 900;
+}
+.fh-contact__maplink:hover{ text-decoration: underline; }
+
+.fh-contact__iframe{
+  width: 100%;
+  height: 100%;
+  min-height: 360px;
+  border: 0;
+  display:block;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+/* Footer bar */
+.fh-footerbar{
+  margin-top: 18px;
+  padding: 14px 16px;
+  border-radius: 16px;
+  background: rgba(0,0,0,.28);
+  border: 1px solid rgba(255,255,255,.08);
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.fh-footerbar__left{
+  display:flex;
+  align-items:center;
+  gap: 10px;
+  min-width: 0;
+}
+.fh-footerbar__badge{
+  width: 34px;
+  height: 34px;
+  border-radius: 12px;
+  display:grid;
+  place-items:center;
+  background: linear-gradient(135deg, rgba(255,106,0,.22), rgba(0,0,0,.35));
+  border: 1px solid rgba(255,120,0,.20);
+}
+.fh-footerbar__text{
+  color: rgba(255,255,255,.72);
+  font-weight: 700;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.fh-footerbar__link{
+  color: rgba(255,196,0,.95);
+  font-weight: 900;
+  text-decoration:none;
+}
+.fh-footerbar__link:hover{ text-decoration: underline; }
+
+/* Footer */
+.fh-footer{
+  padding: 26px 0 40px;
+  border-top: 1px solid rgba(255,120,0,0.10);
+}
+.fh-footer__wrap{
+  width: min(1200px, 92vw);
+  margin: 0 auto;
+  display:flex;
+  align-items:center;
+  justify-content: space-between;
+  gap: 14px;
+}
+.fh-footer__brand{
+  display:flex;
+  align-items:center;
+  gap: 12px;
+}
+.fh-footer__logo{
+  width: 64px;
+  height: 64px;
+  object-fit: contain;
+  filter: drop-shadow(0 10px 18px rgba(0,0,0,.55));
+}
+.fh-footer__name{ font-weight: 900; }
+.fh-footer__sub{ color: rgba(255,255,255,.62); font-size: .92rem; }
+.fh-footer__meta{ color: rgba(255,255,255,.55); font-weight: 700; }
+
+/* Responsive */
+@media (max-width: 900px){
+  .fh-contact__head{
+    flex-direction: column;
+    align-items:flex-start;
+  }
+  .fh-contact__cta{
+    width: 100%;
+  }
+  .fh-btn{ width: 100%; }
+  .fh-contact__card{
+    grid-template-columns: 1fr;
+  }
+  .fh-hours__grid{
+    grid-template-columns: 1fr;
+  }
+  .fh-contact__map{
+    min-height: 360px;
+  }
+  .fh-footer__wrap{
+    flex-direction: column;
+    align-items:flex-start;
+  }
+}
