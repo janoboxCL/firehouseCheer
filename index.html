@@ -696,36 +696,157 @@
 
 
     <!-- CONTACTO -->
-    <section id="contacto" class="w-full py-32 fade-in fire-bg-a">
-        <div class="max-w-screen-xl mx-auto px-6 grid md:grid-cols-2 gap-16">
+    <section id="contacto" class="fh-contact fire-bg-a">
+  <div class="fh-contact__wrap">
 
-            <div class="space-y-6">
-                <h2 class="font-title text-4xl font-extrabold">Contacto</h2>
+    <!-- Header -->
+    <div class="fh-contact__head">
+      <img src="assets/img/logo.png" alt="Firehouse Cheer" class="fh-contact__logo" />
+      <div class="fh-contact__titlewrap">
+        <h2 class="fh-contact__title">Contacto & Sede</h2>
+        <p class="fh-contact__subtitle">Escríbenos y te respondemos rápido. Cupos limitados temporada 2026.</p>
+      </div>
 
-                <p class="text-cheer-white/80">
-                    Escríbenos y te responderemos rápido.
-                </p>
+      <div class="fh-contact__cta">
+        <a class="fh-btn fh-btn--wa" href="https://wa.me/56944485003" target="_blank" rel="noopener">
+          <span class="fh-ico">💬</span> WhatsApp
+        </a>
+        <a class="fh-btn fh-btn--primary" href="tel:+56944485003">
+          <span class="fh-ico">📞</span> Llamar
+        </a>
+      </div>
+    </div>
 
-                <ul class="space-y-2">
-                    <li><strong>Correo:</strong> contacto@firehouse.cl</li>
-                    <li><strong>WhatsApp:</strong> +56 9 XXXX XXXX</li>
-                </ul>
+    <!-- Main Card -->
+    <div class="fh-contact__card">
+      <!-- Left: Info -->
+      <div class="fh-contact__info">
+        <div class="fh-contact__block">
+          <div class="fh-contact__kicker">ACADEMIA FIREHOUSE — SAN MIGUEL</div>
+
+          <div class="fh-contact__item">
+            <div class="fh-contact__icon">📍</div>
+            <div>
+              <div class="fh-contact__label">Dirección</div>
+              <div class="fh-contact__value">Calle Santa Corina 197, San Miguel</div>
+              <div class="fh-contact__meta">🚇 Metro Lo Ovalle — Línea 2</div>
+            </div>
+          </div>
+
+          <div class="fh-contact__item">
+            <div class="fh-contact__icon">📞</div>
+            <div>
+              <div class="fh-contact__label">Teléfono / WhatsApp</div>
+              <a class="fh-contact__value fh-contact__link" href="https://wa.me/56944485003" target="_blank" rel="noopener">
+                +56 9 4448 5003
+              </a>
+            </div>
+          </div>
+
+          <div class="fh-contact__item">
+            <div class="fh-contact__icon">🌐</div>
+            <div>
+              <div class="fh-contact__label">Sitio web</div>
+              <a class="fh-contact__value fh-contact__link" href="https://firehousecheer.cl" target="_blank" rel="noopener">
+                www.firehousecheer.cl
+              </a>
+            </div>
+          </div>
+
+          <div class="fh-contact__item">
+            <div class="fh-contact__icon">✉️</div>
+            <div>
+              <div class="fh-contact__label">Correo</div>
+              <a class="fh-contact__value fh-contact__link" href="mailto:contacto@firehouse.cl">contacto@firehouse.cl</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hours -->
+        <div class="fh-contact__block fh-hours">
+          <div class="fh-hours__head">
+            <div class="fh-hours__title">Horarios</div>
+            <div class="fh-hours__chip">*Según categoría</div>
+          </div>
+
+          <div class="fh-hours__grid">
+            <div class="fh-hours__card">
+              <div class="fh-hours__top">
+                <span class="fh-hours__ico">🤸</span>
+                <div class="fh-hours__name">Gimnasia</div>
+              </div>
+              <div class="fh-hours__time">Viernes 17:00–20:00</div>
+              <div class="fh-hours__note">Técnica de suelo · fuerza · progresiones</div>
             </div>
 
-            <iframe
-                class="rounded-card border-2 border-cheer-red shadow-card w-full h-80"
-                src="https://maps.google.com/maps?q=Santiago%20de%20Chile&t=&z=13&ie=UTF8&iwloc=&output=embed">
-            </iframe>
+            <div class="fh-hours__card">
+              <div class="fh-hours__top">
+                <span class="fh-hours__ico">🔥</span>
+                <div class="fh-hours__name">Cheer Class</div>
+              </div>
+              <div class="fh-hours__time">Sábado 16:00–22:00*</div>
+              <div class="fh-hours__note">Stunts · transiciones · preparación competitiva</div>
+            </div>
+          </div>
 
+          <div class="fh-contact__micro">
+            <span class="fh-dot"></span> Respuesta rápida por WhatsApp · Cupos limitados · Temporada 2026
+          </div>
         </div>
-    </section>
+      </div>
 
+      <!-- Right: Map -->
+      <div class="fh-contact__map">
+        <div class="fh-contact__maphead">
+          <div class="fh-contact__maptitle">Cómo llegar</div>
+          <a class="fh-contact__maplink"
+             href="https://www.google.com/maps?q=Calle%20Santa%20Corina%20197%2C%20San%20Miguel%2C%20Santiago%2C%20Chile"
+             target="_blank" rel="noopener">
+            Abrir en Google Maps →
+          </a>
+        </div>
+
+        <iframe
+          class="fh-contact__iframe"
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          src="https://www.google.com/maps?q=Calle%20Santa%20Corina%20197%2C%20San%20Miguel%2C%20Santiago%2C%20Chile&output=embed">
+        </iframe>
+      </div>
+    </div>
+
+    <!-- Bottom bar -->
+    <div class="fh-footerbar">
+      <div class="fh-footerbar__left">
+        <span class="fh-footerbar__badge">🔥</span>
+        <span class="fh-footerbar__text">Firehouse Cheerleading · Disciplina · Familia · Alto rendimiento</span>
+      </div>
+
+      <div class="fh-footerbar__right">
+        <a href="#hero" class="fh-footerbar__link">Volver arriba ↑</a>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 
     <!-- FOOTER -->
-    <footer class="w-full py-12 border-t border-cheer-red text-center text-cheer-white/60">
-        <p>© 2025 Firehouse Cheerleading. Todos los derechos reservados.</p>
-    </footer>
+    <footer class="fh-footer">
+  <div class="fh-footer__wrap">
+    <div class="fh-footer__brand">
+      <img src="assets/img/logo.png" alt="Firehouse Cheer" class="fh-footer__logo" />
+      <div class="fh-footer__brandtext">
+        <div class="fh-footer__name">Firehouse Cheerleading</div>
+        <div class="fh-footer__sub">Sede San Miguel · Santiago, Chile</div>
+      </div>
+    </div>
+
+    <div class="fh-footer__meta">
+      <span>© 2025 Firehouse Cheerleading. Todos los derechos reservados.</span>
+    </div>
+  </div>
+</footer>
 	<!-- MODAL FLOTANTE COACH -->
 <div id="coach-modal" class="coach-modal hidden">
     <div id="coach-modal-content" class="coach-modal-content">
