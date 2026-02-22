@@ -1,0 +1,8 @@
+{
+  "name": "firehouse-cheer",
+  "private": true,
+  "scripts": {
+    "build:gallery": "node assets/scripts/build-gallery-index.mjs",
+    "build": "npm run build:gallery"
+  }
+}

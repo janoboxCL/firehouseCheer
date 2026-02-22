@@ -1,4 +1,39 @@
 {
-  "generatedAt": "2026-02-22T12:36:29.210Z",
-  "galleries": []
+  "galleries": [
+    {
+      "id": "competencias_2025",
+      "name": "Competencias 2025",
+      "count": 28,
+      "images": [
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0333.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0348.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0349.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0350.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0351.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0356.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0358.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0360.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0362.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0365.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0369.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0370.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0374.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0385.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0386.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0389.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0399.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0401.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0404.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0406.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0409.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0414.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0421.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0428.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0433.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0440.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0443.jpg",
+        "assets/img/galeria/competencias_2025/IMG-20260218-WA0444.jpg"
+      ]
+    }
+  ]
 }

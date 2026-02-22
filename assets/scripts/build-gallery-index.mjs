@@ -16,9 +16,7 @@ async function ensureGalleryRoot() {
     } catch (err) {
         if (err.code === "ENOENT") {
             await fs.mkdir(galleryRoot, { recursive: true });
-            return [];
         }
-        throw err;
     }
 }
 
@@ -27,17 +25,29 @@ function humanizeName(folderName) {
     return clean.replace(/\b(\w)/g, (match) => match.toUpperCase());
 }
 
+async function readCurrentManifest() {
+    try {
+        const content = await fs.readFile(outputFile, "utf8");
+        return JSON.parse(content);
+    } catch (err) {
+        if (err.code === "ENOENT") return null;
+        throw err;
+    }
+}
+
 async function buildManifest() {
     await ensureGalleryRoot();
     const entries = await fs.readdir(galleryRoot, { withFileTypes: true });
 
     const galleries = await Promise.all(entries
         .filter((entry) => entry.isDirectory())
+        .sort((a, b) => a.name.localeCompare(b.name))
         .map(async (dir) => {
             const dirPath = path.join(galleryRoot, dir.name);
             const files = await fs.readdir(dirPath);
             const images = files
                 .filter(isImage)
+                .sort((a, b) => a.localeCompare(b))
                 .map((file) => path.join("assets/img/galeria", dir.name, file).replace(/\\/g, "/"));
 
             return {
@@ -49,11 +59,16 @@ async function buildManifest() {
         }));
 
     const manifest = {
-        generatedAt: new Date().toISOString(),
         galleries: galleries.sort((a, b) => a.id.localeCompare(b.id)),
     };
 
-    await fs.writeFile(outputFile, JSON.stringify(manifest, null, 2), "utf8");
+    const currentManifest = await readCurrentManifest();
+    if (JSON.stringify(currentManifest) === JSON.stringify(manifest)) {
+        console.log("Galería sin cambios. No se actualiza gallery-index.json");
+        return;
+    }
+
+    await fs.writeFile(outputFile, `${JSON.stringify(manifest, null, 2)}\n`, "utf8");
     console.log(`Galería generada en ${outputFile}`);
 }
 

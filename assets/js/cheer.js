@@ -324,7 +324,46 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    function normalizeGalleryFromManifest(gallery) {
+        if (!gallery || typeof gallery !== "object") return null;
+
+        const id = typeof gallery.id === "string" ? gallery.id : "";
+        const images = Array.isArray(gallery.images)
+            ? gallery.images.filter((img) => typeof img === "string" && img.trim())
+            : [];
+
+        if (!id || !images.length) return null;
+
+        return {
+            id,
+            name: gallery.name || toHumanName(id),
+            images,
+        };
+    }
+
+    async function loadGalleriesFromManifest() {
+        try {
+            const response = await fetch("assets/img/gallery-index.json", { cache: "no-store" });
+            if (!response.ok) return [];
+
+            const data = await response.json();
+            if (!data || !Array.isArray(data.galleries)) return [];
+
+            return data.galleries
+                .map(normalizeGalleryFromManifest)
+                .filter(Boolean)
+                .sort((a, b) => a.id.localeCompare(b.id));
+        } catch (err) {
+            return [];
+        }
+    }
+
     async function loadGalleries() {
+        const manifestGalleries = await loadGalleriesFromManifest();
+        if (manifestGalleries.length) {
+            return manifestGalleries;
+        }
+
         return discoverGalleriesFromDirectoryListing();
     }
 
