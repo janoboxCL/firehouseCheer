@@ -1528,9 +1528,19 @@ header{
 
 .fh-top-unified{
   position: relative;
-  overflow-x: hidden;
+  overflow-x: visible;
   overflow-y: visible;
   isolation: isolate;
+}
+
+/* recorta SOLO el carrusel */
+.hero-stack-carousel{
+  overflow: hidden;      /* ya lo tienes */
+}
+
+/* y si el desborde viene del layout del hero completo */
+#hero{
+  overflow-x: clip;      /* mejor que hidden si está disponible */
 }
 
 #hero{
