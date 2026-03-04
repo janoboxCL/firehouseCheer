@@ -125,7 +125,7 @@ Entrenador y coreógrafo con 24 años de trayectoria en Cheerleading competitivo
 
     },
     2: {
-       img: "assets/img/coach_javier.jpg",
+       img: "assets/img/javier2.jpeg",
         name: "Coach Javier",
         role: "Entrenador de Cheer • Técnica Competitiva",
         desc: `
@@ -141,7 +141,7 @@ Con una basta experiencia en la formación de equipos CHEERLEADING, Javier lider
         specialties: ["Cheerleading", "Técnica Competitiva", "Stunts", "Formación de Equipos"]
     },
     3: {
-        img: "assets/img/coach_nicolas.jpg",
+        img: "assets/img/coach_nico.jpg",
         name: "Coach Nicolas",
        role: "Entrenador de Gimnasia • Técnica y Fuerza",
     desc: `
