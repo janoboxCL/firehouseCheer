@@ -125,7 +125,8 @@
       --hr-card:rgba(26,5,5,.78);
       --hr-card-strong:rgba(53,8,8,.92);
       --hr-line:rgba(255,196,0,.28);
-      overflow:hidden;
+      overflow-x:hidden;
+      overflow-y:visible;
       background:
         radial-gradient(900px 520px at 20% 0%, rgba(255,70,0,.23), transparent 64%),
         radial-gradient(900px 520px at 80% 8%, rgba(255,30,30,.23), transparent 62%),
@@ -187,10 +188,10 @@
       gap:.05em;
       width:min(100%, 900px);
       font-family:Montserrat, Inter, sans-serif;
-      font-size:clamp(4.2rem, 9.2vw, 8.8rem);
+      font-size:clamp(3.6rem, 8.2vw, 8.2rem);
       font-weight:900;
-      letter-spacing:-.065em;
-      line-height:.82;
+      letter-spacing:-.045em;
+      line-height:.88;
       text-transform:uppercase;
       text-wrap:balance;
       text-shadow:none;
@@ -216,8 +217,15 @@
 
     .hr-title-line{
       display:block;
-      width:max-content;
+      width:100%;
       max-width:100%;
+      overflow-wrap:normal;
+      word-break:normal;
+      white-space:normal;
+    }
+
+    .hr-title-line--year{
+      letter-spacing:-.055em;
     }
 
     .hr-gradient-title{
@@ -375,13 +383,8 @@
     .hr-mascot-img--blaze{ right:1%; transform:translateY(0) rotate(1deg); }
 
     .hr-mascots.is-placeholder::before{
-      content:"Espacio para Nova + Blaze";
-      display:grid;
-      place-items:center;
-      color:rgba(255,255,255,.65);
-      font-weight:900;
-      letter-spacing:.08em;
-      text-transform:uppercase;
+      content:"";
+      display:block;
     }
 
     .hr-hero-stats{
@@ -725,20 +728,15 @@
     .hr-stage-media--character img{ object-fit:contain; padding:12px 6px 0; filter:drop-shadow(0 18px 26px rgba(0,0,0,.52)); }
 
     .hr-stage-media.is-placeholder::after{
-      content:attr(data-placeholder);
+      content:"";
       position:absolute;
       inset:18px;
-      display:grid;
-      place-items:center;
-      text-align:center;
-      padding:18px;
-      color:rgba(255,255,255,.70);
-      font-weight:900;
-      text-transform:uppercase;
-      letter-spacing:.08em;
-      border:1px dashed rgba(255,196,0,.28);
+      display:block;
+      border:1px solid rgba(255,196,0,.18);
       border-radius:20px;
-      background:rgba(0,0,0,.16);
+      background:
+        radial-gradient(circle at 50% 38%, rgba(255,196,0,.12), transparent 45%),
+        linear-gradient(145deg, rgba(197,21,21,.32), rgba(0,0,0,.18));
     }
 
     .hr-stage-body{
@@ -1153,6 +1151,81 @@
       filter:drop-shadow(0 8px 16px rgba(0,0,0,.55));
     }
 
+
+
+    /* V5: imágenes finales Hoja de Ruta */
+    .hr-mascots--route{
+      max-width:620px;
+      min-height:560px;
+      overflow:visible;
+      align-items:center;
+      padding:26px 12px 0;
+    }
+
+    .hr-mascots--route::before{
+      inset:92px 4px 16px;
+      border-radius:36px;
+    }
+
+    .hr-mascots--route::after{
+      display:none;
+    }
+
+    .hr-hero-character{
+      position:relative;
+      z-index:5;
+      display:block;
+      width:min(100%, 570px);
+      max-height:540px;
+      object-fit:contain;
+      object-position:center bottom;
+      filter:drop-shadow(0 28px 36px rgba(0,0,0,.58));
+    }
+
+    .hr-stage-media--character{
+      align-items:center;
+      padding:12px;
+    }
+
+    .hr-stage-media--character img{
+      width:100%;
+      height:100%;
+      max-height:310px;
+      object-fit:contain;
+      object-position:center bottom;
+      padding:0;
+      filter:drop-shadow(0 18px 26px rgba(0,0,0,.52));
+    }
+
+    .hr-stage-media--character:hover img,
+    .hr-stage:hover .hr-stage-media--character img{
+      transform:scale(1.035);
+    }
+
+    .roadmap-page *,
+    .roadmap-page *::before,
+    .roadmap-page *::after{
+      box-sizing:border-box;
+    }
+
+    .hr-copy,
+    .hr-hero-media,
+    .hr-stage,
+    .hr-stage-body,
+    .hr-cost-card,
+    .hr-cost-summary,
+    .hr-wa-card{
+      min-width:0;
+      max-width:100%;
+    }
+
+    .hr-hero-media,
+    .hr-mascots,
+    .hr-stage,
+    .hr-cost-summary{
+      overflow:hidden;
+    }
+
     @media (max-width: 1120px){
       .hr-hero-grid{ grid-template-columns:1fr; }
       .hr-hero-media{ min-height:500px; }
@@ -1190,20 +1263,35 @@
 
     @media (max-width: 520px){
       .hr-shell{ width:min(100% - 22px, 1180px); }
-      .hr-title{ font-size:clamp(3.25rem, 17vw, 5.15rem); }
-      .hr-hero-text{ font-size:1.02rem; }
+      .hr-title{
+        font-size:clamp(2.95rem, 14.4vw, 4.35rem);
+        line-height:.9;
+        letter-spacing:-.042em;
+      }
+      .hr-title::after{ width:74%; height:6px; bottom:-.10em; }
+      .hr-hero-text{ font-size:1.02rem; line-height:1.48; }
       .hr-hero-actions{ grid-template-columns:1fr; }
-      .hr-hero-media{ min-height:390px; }
-      .hr-mascots{ min-height:380px; }
-      .hr-mascot-img{ width:59%; }
-      .hr-mascot-img--nova{ left:-7%; }
-      .hr-mascot-img--blaze{ right:-8%; }
+      .hr-btn{ justify-content:space-between; padding:0 20px; }
+      .hr-hero-media{ min-height:320px; margin-top:4px; }
+      .hr-logo-float{ width:148px; top:18px; }
+      .hr-mascots{ min-height:315px; max-width:100%; overflow:hidden; }
+      .hr-mascots::before{ inset:82px 0 0; border-radius:26px; transform:none; }
+      .hr-mascots::after{ left:0; right:0; }
+      .hr-mascot-img{ width:55%; max-height:300px; }
+      .hr-mascot-img--nova{ left:-4%; }
+      .hr-mascot-img--blaze{ right:-5%; }
       .hr-progress-card{ padding:16px; border-radius:22px; }
       .hr-progress-head{ display:block; }
       .hr-timeline{ grid-template-columns:1fr; }
       .hr-step{ min-height:104px; }
-      .hr-anchor-nav{ padding:10px 0; }
-      .hr-anchor{ font-size:.8rem; padding:9px 11px; }
+      .hr-anchor-nav{
+        display:grid;
+        grid-template-columns:repeat(2, minmax(0, 1fr));
+        gap:8px;
+        overflow:visible;
+        padding:10px 0;
+      }
+      .hr-anchor{ width:100%; justify-content:center; font-size:.78rem; padding:9px 8px; }
       .hr-now-head{ padding:22px 18px; border-radius:24px; margin-bottom:22px; }
       .hr-now-title{ font-size:clamp(3.15rem, 16vw, 4.8rem); line-height:.86; }
       .hr-now-sub{ font-size:1.05rem; line-height:1.5; }
@@ -1211,15 +1299,82 @@
       .hr-now-chip{ justify-content:center; padding:11px 10px; font-size:.76rem; }
       .hr-stage{ border-radius:22px; }
       .hr-stage-body{ padding:18px; }
-      .hr-stage-title{ font-size:1.55rem; }
-      .hr-month-band{ font-size:.86rem; }
+      .hr-stage-title{
+        font-size:clamp(2rem, 8.8vw, 2.75rem);
+        line-height:.92;
+        letter-spacing:-.06em;
+      }
+      .hr-stage-number{ font-size:clamp(3.3rem, 15vw, 4.4rem); }
+      .hr-stage-kicker{ font-size:.78rem; min-height:34px; padding:0 13px; }
+      .hr-month-band{ font-size:.96rem; line-height:1.1; white-space:normal; transform:none; border-radius:16px; padding:12px 14px; }
+      .hr-month-band span{ transform:none; }
+      .hr-stage-text{ font-size:1.05rem; line-height:1.62; }
+      .hr-stage-list li{ font-size:.96rem; padding:10px 12px; }
+      .hr-details summary{ font-size:1rem; padding:15px 16px; }
       .hr-cost-card{ margin:0 14px 14px; }
       .hr-cost-row{ grid-template-columns:1fr; }
-      .hr-sticky-wa{ border-radius:22px; align-items:flex-start; }
+      .hr-sticky-wa{
+        width:calc(100% - 28px);
+        border-radius:18px;
+        align-items:center;
+        padding:9px 9px 9px 12px;
+      }
+      .hr-sticky-wa strong{ font-size:.9rem; line-height:1.18; }
       .hr-sticky-wa span{ display:none; }
       .hr-mini-btn{ min-height:36px; padding:0 12px; font-size:.86rem; }
       .hr-footer-mini__wrap{ flex-direction:column; align-items:flex-start; padding-bottom:24px; }
+
+      #topbar .max-w-screen-xl{ padding-left:14px; padding-right:14px; }
+      .topbar-text{ max-width:44vw; }
+      .topbar-cta{ padding:.55rem .8rem; font-size:.78rem; }
+      #site-nav .max-w-screen-xl{ padding-left:18px; padding-right:18px; }
+      #site-nav img.logo-premium{ height:74px; }
     }
+
+
+    @media (max-width: 860px){
+      .hr-mascots--route{
+        min-height:clamp(380px, 96vw, 520px);
+        padding:18px 4px 0;
+      }
+      .hr-hero-character{
+        width:min(100%, 460px);
+        max-height:clamp(360px, 92vw, 500px);
+      }
+      .hr-stage-media--character{
+        min-height:300px;
+        padding:16px 12px 0;
+      }
+      .hr-stage-media--character img{
+        max-height:310px;
+        width:min(100%, 420px);
+        margin-inline:auto;
+      }
+    }
+
+    @media (max-width: 520px){
+      .hr-mascots--route{
+        min-height:clamp(360px, 112vw, 480px);
+        padding:12px 0 0;
+      }
+      .hr-hero-character{
+        width:min(100%, 390px);
+        max-height:clamp(350px, 108vw, 460px);
+      }
+      .hr-stage-media--character{
+        min-height:clamp(300px, 86vw, 380px);
+        padding:14px 8px 0;
+      }
+      .hr-stage-media--character img{
+        max-height:clamp(285px, 82vw, 365px);
+        width:min(100%, 340px);
+      }
+      .hr-stage[data-stage="competitivo"] .hr-stage-media--character img,
+      .hr-stage[data-stage="tryouts"] .hr-stage-media--character img{
+        width:min(100%, 370px);
+      }
+    }
+
   </style>
 </head>
 
@@ -1293,7 +1448,8 @@
 
           <h1 id="page-title" class="hr-title hr-gradient-title mt-5" aria-label="Hoja de Ruta Firehouse 2026">
             <span class="hr-title-line">Hoja de Ruta</span>
-            <span class="hr-title-line">Firehouse 2026</span>
+            <span class="hr-title-line">Firehouse</span>
+            <span class="hr-title-line hr-title-line--year">2026</span>
           </h1>
 
           <p class="hr-hero-text">
@@ -1322,11 +1478,9 @@
           </div>
         </div>
 
-        <div class="hr-hero-media" aria-label="Embajadores Firehouse">
-          <img class="hr-logo-float" src="assets/img/logo.png" alt="Firehouse Cheerleading All Stars">
-          <div class="hr-mascots">
-            <img class="hr-mascot-img hr-mascot-img--nova" src="assets/img/hoja-ruta/nova.png" alt="Nova, embajadora Firehouse" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
-            <img class="hr-mascot-img hr-mascot-img--blaze" src="assets/img/hoja-ruta/blaze.png" alt="Blaze, embajador Firehouse" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
+        <div class="hr-hero-media" aria-label="Blaze y Nova presentando la Hoja de Ruta Firehouse 2026">
+          <div class="hr-mascots hr-mascots--route">
+            <img class="hr-hero-character" src="assets/img/ruta1.png" alt="Blaze y Nova presentando el calendario de la Hoja de Ruta Firehouse 2026" decoding="async" fetchpriority="high" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
           </div>
         </div>
       </div>
@@ -1339,7 +1493,7 @@
           <a class="hr-anchor is-active" href="#inicio">Inicio</a>
           <a class="hr-anchor" href="#formacion">01 Formación</a>
           <a class="hr-anchor" href="#coreografico">02 Coreografía</a>
-          <a class="hr-anchor" href="#competitivo">03 Competitivo</a>
+          <a class="hr-anchor" href="#competitivo">03 Compet.</a>
           <a class="hr-anchor" href="#tryouts">04 Tryouts</a>
           <a class="hr-anchor" href="#costos">Costos</a>
         </div>
@@ -1368,8 +1522,8 @@
 
             <!-- 01 -->
             <article id="formacion" class="hr-stage" data-stage="formacion" aria-labelledby="formacion-title">
-              <div class="hr-stage-media hr-stage-media--character" data-placeholder="Imagen Nova">
-                <img src="assets/img/hoja-ruta/nova.png" alt="Nova representando el proceso de formación" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
+              <div class="hr-stage-media hr-stage-media--character" data-placeholder="Imagen etapa formación">
+                <img src="assets/img/etapa1.png" alt="Nova representando el proceso de formación e inicio de entrenamiento" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
               </div>
 
               <div class="hr-stage-body">
@@ -1412,8 +1566,8 @@
 
             <!-- 02 -->
             <article id="coreografico" class="hr-stage" data-stage="coreografico" aria-labelledby="coreografico-title">
-              <div class="hr-stage-media hr-stage-media--character" data-placeholder="Imagen Blaze">
-                <img src="assets/img/hoja-ruta/blaze.png" alt="Blaze representando el proceso coreográfico" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
+              <div class="hr-stage-media hr-stage-media--character" data-placeholder="Imagen etapa coreográfica">
+                <img src="assets/img/etapa2.png" alt="Blaze representando el proceso coreográfico y rutinas" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
               </div>
 
               <div class="hr-stage-body">
@@ -1455,8 +1609,8 @@
 
             <!-- 03 -->
             <article id="competitivo" class="hr-stage" data-stage="competitivo" aria-labelledby="competitivo-title">
-              <div class="hr-stage-media" data-placeholder="Imagen proceso competitivo">
-                <img src="assets/img/hoja-ruta/proceso-competitivo.jpg" alt="Proceso competitivo Firehouse Cheer" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
+              <div class="hr-stage-media hr-stage-media--character" data-placeholder="Imagen etapa competitiva">
+                <img src="assets/img/etapa3.png" alt="Blaze y Nova representando el proceso competitivo con trofeo y medallas" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
               </div>
 
               <div class="hr-stage-body">
@@ -1496,8 +1650,8 @@
 
             <!-- 04 -->
             <article id="tryouts" class="hr-stage" data-stage="tryouts" aria-labelledby="tryouts-title">
-              <div class="hr-stage-media" data-placeholder="Imagen Tryouts 2027">
-                <img src="assets/img/hoja-ruta/tryouts-2027.jpg" alt="Tryouts y audiciones Firehouse 2027" loading="lazy" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
+              <div class="hr-stage-media hr-stage-media--character" data-placeholder="Imagen etapa tryouts">
+                <img src="assets/img/etapa4.png" alt="Blaze y Nova representando tryouts y audiciones Firehouse 2027" loading="lazy" decoding="async" onerror="this.style.display='none'; this.parentElement.classList.add('is-placeholder')">
               </div>
 
               <div class="hr-stage-body">
