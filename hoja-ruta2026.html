@@ -228,6 +228,51 @@
       letter-spacing:-.055em;
     }
 
+
+
+    /* V6: evita que el título principal se corte en escritorio.
+       El H1 sigue siendo protagonista, pero ahora respeta el ancho real
+       de la columna izquierda antes de llegar al bloque visual. */
+    @media (min-width: 1121px){
+      .hr-hero-grid{
+        grid-template-columns:minmax(0, 1.12fr) minmax(320px, .82fr);
+        gap:30px;
+      }
+
+      .hr-title{
+        width:100%;
+        max-width:720px;
+        font-size:clamp(4.7rem, 6.15vw, 6.7rem);
+        line-height:.88;
+        letter-spacing:-.052em;
+      }
+
+      .hr-title-line{
+        max-width:100%;
+      }
+
+      .hr-title-line:nth-child(1){
+        font-size:.94em;
+      }
+
+      .hr-title-line:nth-child(2){
+        font-size:.90em;
+      }
+
+      .hr-title-line--year{
+        font-size:.98em;
+      }
+
+      .hr-hero-media{
+        min-height:540px;
+      }
+
+      .hr-hero-character{
+        width:min(100%, 520px);
+        max-height:520px;
+      }
+    }
+
     .hr-gradient-title{
       color:#fff;
       background:linear-gradient(180deg, #fff 0%, #fff6f2 46%, #ffd3c7 100%);
@@ -1462,21 +1507,6 @@
             <a class="hr-btn hr-btn--ghost" href="#formacion">Comenzar ruta <span aria-hidden="true">↘</span></a>
           </div>
 
-          <div class="hr-hero-stats" aria-label="Resumen de la página">
-            <div class="hr-stat">
-              <strong>Fechas claras</strong>
-              <span>Meses y etapas ordenadas para anticiparse.</span>
-            </div>
-            <div class="hr-stat">
-              <strong>Costos visibles</strong>
-              <span>Costos asociados separados del texto principal.</span>
-            </div>
-            <div class="hr-stat">
-              <strong>Fácil de revisar</strong>
-              <span>Información breve, visual y pensada para celular.</span>
-            </div>
-          </div>
-        </div>
 
         <div class="hr-hero-media" aria-label="Blaze y Nova presentando la Hoja de Ruta Firehouse 2026">
           <div class="hr-mascots hr-mascots--route">
