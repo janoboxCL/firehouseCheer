@@ -553,3 +553,46 @@ document.querySelectorAll('a[href^="#"]').forEach(a=>{
     el.scrollIntoView({behavior:"smooth", block:"start"});
   });
 });
+
+
+/* ============================================================
+   MEDICIÓN DE CONVERSIÓN — GA4
+   Delegación de eventos: captura también los enlaces que se
+   agreguen más adelante sin tener que tocar este archivo.
+   ============================================================ */
+document.addEventListener("click", (e) => {
+  const a = e.target.closest("a[href]");
+  if (!a || typeof gtag !== "function") return;
+
+  const href = a.getAttribute("href") || "";
+  const seccion = (a.closest("section") && a.closest("section").id) || "sin-seccion";
+  const etiqueta = (a.textContent || "").trim().slice(0, 60);
+
+  if (href.includes("wa.me")) {
+    const marcador = decodeURIComponent(href).match(/\[([\w-]+)\]/);
+    gtag("event", "click_whatsapp", {
+      ubicacion: seccion,
+      origen: marcador ? marcador[1] : "sin-marcador",
+      etiqueta: etiqueta
+    });
+  } else if (href.startsWith("tel:")) {
+    gtag("event", "click_telefono", { ubicacion: seccion });
+  } else if (href.includes("forms.gle") || href.includes("docs.google.com/forms")) {
+    gtag("event", "click_formulario", { ubicacion: seccion });
+  } else if (href.includes("instagram.com")) {
+    gtag("event", "click_instagram", { ubicacion: seccion });
+  }
+});
+
+/* Profundidad de lectura: señal de interés real */
+(() => {
+  let disparado = false;
+  window.addEventListener("scroll", () => {
+    if (disparado) return;
+    const avance = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
+    if (avance >= 0.9) {
+      disparado = true;
+      if (typeof gtag === "function") gtag("event", "scroll_90");
+    }
+  }, { passive: true });
+})();
