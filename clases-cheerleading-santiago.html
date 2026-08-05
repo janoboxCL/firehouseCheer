@@ -133,48 +133,6 @@
 
   gtag('config', 'G-L88KFZ3MYR');
 </script>
-
-<!-- Medición de conversión — GA4 (en línea, sin archivo externo) -->
-<script>
-document.addEventListener("click", (e) => {
-  const a = e.target.closest("a[href]");
-  if (!a || typeof gtag !== "function") return;
-
-  const href = a.getAttribute("href") || "";
-  const seccion = (a.closest("section") && a.closest("section").id) || "sin-seccion";
-  const etiqueta = (a.textContent || "").trim().slice(0, 60);
-  const pagina = location.pathname;
-
-  if (href.includes("wa.me")) {
-    const marcador = decodeURIComponent(href).match(/\[([\w-]+)\]/);
-    gtag("event", "click_whatsapp", {
-      ubicacion: seccion,
-      origen: marcador ? marcador[1] : "sin-marcador",
-      pagina: pagina,
-      etiqueta: etiqueta
-    });
-  } else if (href.startsWith("tel:")) {
-    gtag("event", "click_telefono", { ubicacion: seccion, pagina: pagina });
-  } else if (href.includes("forms.gle") || href.includes("docs.google.com/forms")) {
-    gtag("event", "click_formulario", { ubicacion: seccion, pagina: pagina });
-  } else if (href.includes("instagram.com")) {
-    gtag("event", "click_instagram", { ubicacion: seccion, pagina: pagina });
-  }
-});
-
-/* Profundidad de lectura: señal de interés real */
-(() => {
-  let disparado = false;
-  window.addEventListener("scroll", () => {
-    if (disparado) return;
-    const avance = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
-    if (avance >= 0.9) {
-      disparado = true;
-      if (typeof gtag === "function") gtag("event", "scroll_90", { pagina: location.pathname });
-    }
-  }, { passive: true });
-})();
-</script>
 </head>
 
 <body class="text-cheer-white font-sans">
@@ -258,7 +216,7 @@ document.addEventListener("click", (e) => {
 
         <div class="p-5 rounded-card border border-cheer-red/35 bg-cheer-black/30">
           <div><strong>Dirección:</strong> Calle Santa Corina 197, San Miguel</div>
-          <div><strong>WhatsApp:</strong> <a class="underline" href="https://wa.me/56986114663?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Firehouse%20Cheer.%20%5Bweb-clases-contacto%5D" target="_blank" rel="noopener">+56 9 8611 4663</a></div>
+          <div><strong>WhatsApp:</strong> <a class="underline" href="https://wa.me/56986114663?text=Hola%2C%20vi%20la%20p%C3%A1gina%20de%20clases%20y%20quiero%20m%C3%A1s%20informaci%C3%B3n." target="_blank" rel="noopener">+56 9 8611 4663</a></div>
           <div><strong>Correo:</strong> <a class="underline" href="mailto:allstarfirehouse@gmail.com">allstarfirehouse@gmail.com</a></div>
         </div>
 

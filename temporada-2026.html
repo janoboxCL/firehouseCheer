@@ -161,48 +161,6 @@
 
   gtag('config', 'G-L88KFZ3MYR');
 </script>
-
-<!-- Medición de conversión — GA4 (en línea, sin archivo externo) -->
-<script>
-document.addEventListener("click", (e) => {
-  const a = e.target.closest("a[href]");
-  if (!a || typeof gtag !== "function") return;
-
-  const href = a.getAttribute("href") || "";
-  const seccion = (a.closest("section") && a.closest("section").id) || "sin-seccion";
-  const etiqueta = (a.textContent || "").trim().slice(0, 60);
-  const pagina = location.pathname;
-
-  if (href.includes("wa.me")) {
-    const marcador = decodeURIComponent(href).match(/\[([\w-]+)\]/);
-    gtag("event", "click_whatsapp", {
-      ubicacion: seccion,
-      origen: marcador ? marcador[1] : "sin-marcador",
-      pagina: pagina,
-      etiqueta: etiqueta
-    });
-  } else if (href.startsWith("tel:")) {
-    gtag("event", "click_telefono", { ubicacion: seccion, pagina: pagina });
-  } else if (href.includes("forms.gle") || href.includes("docs.google.com/forms")) {
-    gtag("event", "click_formulario", { ubicacion: seccion, pagina: pagina });
-  } else if (href.includes("instagram.com")) {
-    gtag("event", "click_instagram", { ubicacion: seccion, pagina: pagina });
-  }
-});
-
-/* Profundidad de lectura: señal de interés real */
-(() => {
-  let disparado = false;
-  window.addEventListener("scroll", () => {
-    if (disparado) return;
-    const avance = (window.scrollY + window.innerHeight) / document.body.scrollHeight;
-    if (avance >= 0.9) {
-      disparado = true;
-      if (typeof gtag === "function") gtag("event", "scroll_90", { pagina: location.pathname });
-    }
-  }, { passive: true });
-})();
-</script>
 </head>
 
 <body class="text-cheer-white font-sans bg-cheer-black">
@@ -226,7 +184,7 @@ document.addEventListener("click", (e) => {
       </nav>
 
       <div class="flex items-center gap-3">
-        <a href="https://wa.me/56986114663?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Firehouse%20Cheer.%20%5Bweb-temp-nav%5D" target="_blank" rel="noopener" class="btn-primary-orange">
+        <a href="https://wa.me/56986114663?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20temporada%202026." target="_blank" rel="noopener" class="btn-primary-orange">
           WhatsApp
         </a>
         <button id="season-mobile-btn" class="md:hidden text-white text-2xl" aria-label="Abrir menú">☰</button>
@@ -241,7 +199,7 @@ document.addEventListener("click", (e) => {
       <a href="#gastos" class="block nav-link">Gastos</a>
       <a href="#inscripcion" class="block nav-link">Inscripción</a>
       <a href="#faq" class="block nav-link">Preguntas frecuentes</a>
-      <a href="https://wa.me/56986114663?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20Firehouse%20Cheer.%20%5Bweb-temp-nav-movil%5D" target="_blank" rel="noopener" class="inline-block btn-primary-orange">
+      <a href="https://wa.me/56986114663?text=Hola%2C%20quiero%20informaci%C3%B3n%20sobre%20la%20temporada%202026." target="_blank" rel="noopener" class="inline-block btn-primary-orange">
         WhatsApp
       </a>
     </div>
@@ -279,7 +237,7 @@ document.addEventListener("click", (e) => {
         </div>
 
         <div class="flex flex-wrap gap-4 pt-2">
-          <a href="https://wa.me/56986114663?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20inscribir%20a%20mi%20hijo%20o%20hija%20en%20Firehouse%20Cheer%202026.%20%5Bweb-temp-hero%5D" target="_blank" rel="noopener" class="btn-primary">
+          <a href="https://wa.me/56986114663?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20inscribir%20a%20mi%20hijo%20o%20hija%20en%20la%20temporada%202026." target="_blank" rel="noopener" class="btn-primary">
             Quiero información para inscribir
           </a>
           <a href="#programacion" class="btn-secondary">Ver programación</a>
@@ -540,7 +498,7 @@ document.addEventListener("click", (e) => {
         </p>
 
         <div class="flex flex-wrap gap-4 justify-center pt-2">
-          <a href="https://wa.me/56986114663?text=Hola%2C%20quiero%20informaci%C3%B3n%20para%20inscribir%20a%20mi%20hijo%20o%20hija%20en%20Firehouse%20Cheer%202026.%20%5Bweb-temp-inscripcion%5D" target="_blank" rel="noopener" class="btn-primary">
+          <a href="https://wa.me/56986114663?text=Hola%2C%20quiero%20inscribir%20a%20mi%20hijo%20o%20hija%20y%20necesito%20saber%20los%20pasos." target="_blank" rel="noopener" class="btn-primary">
             Hablar por WhatsApp
           </a>
           <a href="https://forms.gle/tc5iBvezFqeFsn5H7" target="_blank" rel="noopener" class="btn-secondary">
